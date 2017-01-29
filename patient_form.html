@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน (Home visit service management system)</title>
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+
+    <!--mdl-->
+    <link rel="stylesheet" href="lib/mdl/material.min.css">
+    <link rel="stylesheet" href="lib/mdl-template-dashboard/styles.css">
+    <script src="lib/mdl/material.min.js"></script>
+
+    <!--uikit-->
+    <link rel="stylesheet" href="lib/uikit/css/uikit.min.css">
+    <script src="lib/uikit/js/uikit.min.js"></script>
+
+    <!--mdl-stepper-->
+    <link rel="stylesheet" href="lib/mdl-stepper/stepper.min.css">
+    <script src="lib/mdl-stepper/stepper.min.js"></script>
+
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!--custom css-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font.css">
+</head>
+
+<body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="demo-header mdl-layout__header mdl-color--primary mdl-color-text--white">
+            <div class="mdl-layout__header-row">
+                <img src="img/logo-rama.png" width="50px" style="margin-right: 20px;">
+                <div class="mdl-layout-title" style="margin-top: 20px;">
+                    <h6 class="mdl-typography--title mdl-color-text--white">
+                        ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน
+                        <p>ภาควิชาเวชศาสตร์ครอบครัว คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี มหาวิทยาลัยมหิดล</p>
+                    </h6>
+                </div>
+            </div>
+        </header>
+        <div class="demo-drawer mdl-layout__drawer">
+            <header class="demo-drawer-header mdl-color--primary">
+                <img src="img/user.jpg" class="demo-avatar">
+                <div class="demo-avatar-dropdown">
+                    <span class="mdl-color-text--white">นพ.ประสงค์ ทรงธรรม</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons" role="presentation">arrow_drop_down</i>
+                        <span class="visuallyhidden">Accounts</span>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                        <li class="mdl-menu__item">ดูข้อมูลส่วนตัว</li>
+                        <li class="mdl-menu__item">แก้ไขรหัสผ่าน</li>
+                        <li class="mdl-menu__item"><i class="material-icons">exit_to_app</i> ออกจากระบบ</li>
+                    </ul>
+                </div>
+            </header>
+            <nav class="demo-navigation mdl-navigation mdl-color--grey-200">
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="index.html">
+                    <i class="material-icons mdl-color-text--grey-900" role="presentation">home</i> หน้าหลัก
+                </a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="patient.html">
+                    <i class="material-icons mdl-color-text--grey-900">folder_shared</i> ผู้ป่วยเยี่ยมบ้าน
+                </a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="calendar.html">
+                    <i class="material-icons mdl-color-text--grey-900">date_range</i> นัดหมาย
+                </a>
+                <a class="mdl-navigation__link mdl-color-text--green" href="summary.html">
+                    <i class="material-icons mdl-color-text--green">assignment</i> สรุปเยี่ยมบ้าน
+                </a>
+                <div class="mdl-layout-spacer"></div>
+            </nav>
+        </div>
+
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid demo-content">
+
+                <!--
+                <ul class="breadcrumb">
+                    <li><a href="#">สรุปเยี่ยมบ้าน</a></li>
+                    <li>เพิ่มสรุปเยี่ยมบ้าน</li>
+                </ul>
+                -->
+
+                <ul class="uk-breadcrumb">
+                    <li><a href="summary.html">สรุปเยี่ยมบ้าน</a></li>
+                    <li><span href=""></span>เพิ่มสรุปเยี่ยมบ้าน</li>
+                </ul>
+
+                <!--stepper-nonlinear-->
+                <ul class="mdl-stepper mdl-stepper--horizontal" id="demo-stepper-nonlinear">
+
+                    <!--step1-->
+                    <li class="mdl-step">
+                        <span class="mdl-step__label">
+                            <span class="mdl-step__title"><span class="mdl-step__title-text">ข้อมูลทั่วไป</span></span>
+                        </span>
+                        <div class="mdl-step__content ">
+                            <form class="uk-form-horizontal">
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">เหตุผลการเยี่ยมบ้าน</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <label class="margin-right-20">
+                                            <input class="uk-radio" type="radio" name="reason" checked> Assessment</label>
+                                        <label class="margin-right-20">
+                                            <input class="uk-radio" type="radio" name="reason"> Illness management</label>
+                                        <label class="margin-right-20">
+                                            <input class="uk-radio" type="radio" name="reason"> Palliative</label>
+                                        <label class="margin-right-20">
+                                            <input class="uk-radio" type="radio" name="reason"> Post hospitalized</label>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">ทีมแพทย์เยี่ยมบ้าน</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <select class="uk-select uk-width-1-2 uk-form-small">
+                                            <option>เลือกหรือค้นหาแพทย์เยี่ยมบ้าน</option>
+                                            <option>1 สัปดาห์</option>
+                                            <option>2 สัปดาห์</option>
+                                            <option>3 สัปดาห์</option>
+                                            <option>1 เดือน</option>
+                                            <option>2 เดือน</option>
+                                            <option>3 เดือน</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+                                        <button class="uk-button uk-button-primary uk-button-small">+ เพิ่มแพทย์</button>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">ยาที่ใช้ปัจจุบันและยาที่ซื้อกินเอง</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-auto">
+                                                <label class="margin-right-20 uk-text-bold">ชื่อยา</label>
+                                                <select class="uk-select uk-form-width-medium uk-form-small">
+                                                    <option>เลือกหรือค้นหาชื่อยา</option>
+                                                    <option>1 สัปดาห์</option>
+                                                    <option>2 สัปดาห์</option>
+                                                    <option>3 สัปดาห์</option>
+                                                    <option>1 เดือน</option>
+                                                    <option>2 เดือน</option>
+                                                    <option>3 เดือน</option>
+                                                </select>
+                                            </div>
+
+                                            <div>
+                                                <label class="margin-right-20 uk-text-bold">ลักษณะ</label>
+                                                <label class="margin-right-20">
+                                                    <input class="uk-radio" type="radio" name="unit" checked> ยาเม็ด</label>
+                                                <label class="margin-right-20">
+                                                    <input class="uk-radio" type="radio" name="unit"> ยาน้ำ</label>
+                                            </div>
+                                            <div>
+                                                <label class="margin-right-20 uk-text-bold">โดส</label>
+                                                <input class="uk-input uk-form-width-xsmall uk-form-small" type="number" placeholder="1"> เม็ด
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-auto">
+                                                <label class="margin-right-20 uk-text-bold">วิธีใช้ยา</label>
+                                                <label class="margin-right-20">
+                                                    <input class="uk-radio" type="radio" name="method" checked> ก่อนอาหาร</label>
+                                                <label class="margin-right-20">
+                                                    <input class="uk-radio" type="radio" name="method"> หลังอาหาร</label>
+                                            </div>
+                                            <div>
+                                                <label class="margin-right-20 uk-text-bold">ช่วงเวลา</label>
+                                                <label class="margin-right-20">
+                                                    <input class="uk-checkbox" type="checkbox"> เช้า
+                                                </label>
+                                                <label class="margin-right-20">
+                                                    <input class="uk-checkbox" type="checkbox"> กลางวัน
+                                                </label>
+                                                <label class="margin-right-20">
+                                                    <input class="uk-checkbox" type="checkbox"> เย็น
+                                                </label>
+                                                <label class="margin-right-20">
+                                                    <input class="uk-checkbox" type="checkbox"> ก่อนนอน
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+                                        <button class="uk-button uk-button-primary uk-button-small">+ เพิ่มยาที่ใช้</button>
+                                    </div>
+                                </div>
+                                <hr>
+                                <p class="mdl-typography--title">Impairment / Immobility</p>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">Basic activities of daily living</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <label class="margin-right-20">
+                                            <input class="uk-radio " type="radio" name="basic" checked> Yes
+                                        </label>
+                                        <label>
+                                            <input class="uk-radio" type="radio" name="basic"> No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+                                        <label class="margin-right-20"><b>Problem</b></label>
+                                        <label class="margin-right-20">
+                                            <input class="uk-checkbox" type="checkbox"> Dressing
+                                        </label>
+                                        <label class="margin-right-20">
+                                            <input class="uk-checkbox" type="checkbox"> Eating
+                                        </label>
+                                        <label class="margin-right-20">
+                                            <input class="uk-checkbox" type="checkbox"> Ambulating
+                                        </label>
+                                        <label class="margin-right-20">
+                                            <input class="uk-checkbox" type="checkbox"> Toileting
+                                        </label>
+                                        <input class="uk-checkbox" type="checkbox"> Hygine
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">Instrumental activities of daily living</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-1">
+                                                <label class="margin-right-20">
+                                                    <input class="uk-radio " type="radio" name="instrument" checked> Yes
+                                                </label>
+                                                <label>
+                                                    <input class="uk-radio" type="radio" name="instrument"> No
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <div class="uk-width-1-1">
+                                                <label class="margin-right-20"><b>Problem</b></label>
+                                                <label class="margin-right-20">
+                                                    <input class="uk-checkbox" type="checkbox"> Shopping</label>
+                                                <label class="margin-right-20">
+                                                    <input class="uk-checkbox" type="checkbox"> Houskeeping
+                                                </label>
+                                                <label class="margin-right-20">
+                                                    <input class="uk-checkbox" type="checkbox"> Medication
+                                                </label>
+                                                <label class="margin-right-20">
+                                                    <input class="uk-checkbox" type="checkbox"> Financial
+                                                </label>
+                                                <input class="uk-checkbox" type="checkbox"> Transpoting / Technology
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <p class="mdl-typography--title">Nutrition</p>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">Nutritional status</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <label class="margin-right-20">
+                                            <input class="uk-radio" type="radio" name="nutrition" checked> Healthy
+                                        </label>
+                                        <label class="margin-right-20">
+                                            <input class="uk-radio" type="radio" name="nutrition"> Obesity
+                                        </label>
+                                        <input class="uk-radio" type="radio" name="nutrition"> Malnutrition
+                                    </div>
+                                </div>
+                                <hr>
+                                <p class="mdl-typography--title">Home environment / Safety</p>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">Risk</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <label class="margin-right-20">
+                                            <input class="uk-radio " type="radio" name="risk" checked> Yes
+                                        </label>
+                                        <label>
+                                            <input class="uk-radio" type="radio" name="risk"> No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">Place at risk</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <select class="uk-select uk-width-1-2 uk-form-small">
+                                            <option>เลือก Place at risk</option>
+                                            <option>1 สัปดาห์</option>
+                                            <option>2 สัปดาห์</option>
+                                            <option>3 สัปดาห์</option>
+                                            <option>1 เดือน</option>
+                                            <option>2 เดือน</option>
+                                            <option>3 เดือน</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <hr>
+                                <p class="mdl-typography--title">Social support</p>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">Caregiver burden</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <label class="margin-right-20">
+                                            <input class="uk-radio" type="radio" name="caregiver" checked> Yes
+                                        </label>
+                                        <label>
+                                            <input class="uk-radio" type="radio" name="caregiver"> No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">Main caregiver</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <select class="uk-select uk-width-1-2 uk-form-small">
+                                            <option>เลือก Main caregiver</option>
+                                            <option>1 สัปดาห์</option>
+                                            <option>2 สัปดาห์</option>
+                                            <option>3 สัปดาห์</option>
+                                            <option>1 เดือน</option>
+                                            <option>2 เดือน</option>
+                                            <option>3 เดือน</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">สิทธิ์การรักษา</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <select class="uk-select uk-width-1-2 uk-form-small">
+                                            <option>เลือกสิทธิ์การรักษา</option>
+                                            <option>1 สัปดาห์</option>
+                                            <option>2 สัปดาห์</option>
+                                            <option>3 สัปดาห์</option>
+                                            <option>1 เดือน</option>
+                                            <option>2 เดือน</option>
+                                            <option>3 เดือน</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <hr>
+                                <p class="mdl-typography--title">Medication</p>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Prescription drug</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-5@s">
+                                                <label class="margin-right-20">
+                                                    <input class="uk-radio " type="radio" checked> Yes
+                                                </label>
+                                                <label>
+                                                    <input class="uk-radio" type="radio"> No
+                                                </label>
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Nonprescription drug</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-5@s">
+                                                <label class="margin-right-20">
+                                                    <input class="uk-radio " type="radio" checked> Yes
+                                                </label>
+                                                <label>
+                                                    <input class="uk-radio" type="radio"> No
+                                                </label>
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Dietary supplement</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-5@s">
+                                                <label class="margin-right-20">
+                                                    <input class="uk-radio " type="radio" checked> Yes
+                                                </label>
+                                                <label>
+                                                    <input class="uk-radio" type="radio"> No
+                                                </label>
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Medication compliance</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-5@s">
+                                                <label class="margin-right-20">
+                                                    <input class="uk-radio " type="radio" checked> Yes
+                                                </label>
+                                                <label>
+                                                    <input class="uk-radio" type="radio"> No
+                                                </label>
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <p class="mdl-typography--title">Management</p>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                <input class="uk-checkbox" type="checkbox"> Assessment
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                <input class="uk-checkbox" type="checkbox"> Pain & Symptom management
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                <input class="uk-checkbox" type="checkbox"> Medication management
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small " placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                <input class="uk-checkbox" type="checkbox"> Procedure
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                <input class="uk-checkbox" type="checkbox"> Family meeting
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                <input class="uk-checkbox" type="checkbox"> Social support & Health insurance
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                <input class="uk-checkbox" type="checkbox"> Psychological care
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                <input class="uk-checkbox" type="checkbox"> Rehabilitation
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text"></label>
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                <input class="uk-checkbox" type="checkbox"> Advance direction choice
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text"></label>
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                <input class="uk-checkbox" type="checkbox"> Dying
+                                                <span class="uk-text-meta uk-text-small">Funeral plan / Grief bereavement care</span>
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text"></label>
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                <input class="uk-checkbox" type="checkbox"> Other specify
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small" placeholder="คำอธิบายเพิ่มเติม...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--/form.uk-->
+
+                        </div>
+                        <div class="mdl-step__actions">
+                            <div class="mdl-layout-spacer"></div>
+                            <button class="mdl-button mdl-js-button mdl-button--primary">
+                                ถัดไป
+                            </button>
+                        </div>
+                    </li>
+                    <li class="mdl-step">
+                        <span class="mdl-step__label">
+          <span class="mdl-step__title">
+            <span class="mdl-step__title-text">รายละเอียดปัญหา</span>
+                        </span>
+                        </span>
+                        <div class="mdl-step__content">
+
+                            <form class="uk-form-horizontal uk-margin-large">
+
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Biological problem</label>
+                                    <div class="uk-form-controls">
+                                        <textarea class="uk-textarea uk-width-1-2" rows="3" placeholder="Biological problem..."></textarea>
+                                    </div>
+                                </div>
+                                <hr>
+
+                                <p class="mdl-typography--title">Physical examination</p>
+
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Vital sign</label>
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3@s">
+                                                BP
+                                                <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder=""> mmHg
+                                            </div>
+                                            <div class="uk-width-1-3@s">
+                                                HR
+                                                <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder=""> /min
+                                            </div>
+                                            <div class="uk-width-1-3@s">
+                                                RR
+                                                <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder=""> /min
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+                                        <div class="uk-width-1-2@s">
+                                            Oxygen saturation
+                                            <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder=""> %
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">HEENT</label>
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-6@s">
+                                                <input class="uk-checkbox" type="checkbox"> ปกติ
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Heart</label>
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-6@s">
+                                                <input class="uk-checkbox" type="checkbox"> ปกติ
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Lungs</label>
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-6@s">
+                                                <input class="uk-checkbox" type="checkbox"> ปกติ
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Abdomen</label>
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-6@s">
+                                                <input class="uk-checkbox" type="checkbox"> ปกติ
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Extremities</label>
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-6@s">
+                                                <input class="uk-checkbox" type="checkbox"> ปกติ
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Neuro</label>
+                                    <div class="uk-form-controls">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-6@s">
+                                                <input class="uk-checkbox" type="checkbox"> ปกติ
+                                            </div>
+                                            <div class="uk-width-1-2">
+                                                <input class="uk-input uk-form-small ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">Select</label>
+                                    <div class="uk-form-controls">
+                                        <select class="uk-select" id="form-horizontal-select">
+                                            <option>Option 01</option>
+                                            <option>Option 02</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="uk-margin">
+                                    <div class="uk-form-label">Radio</div>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <label>
+                                            <input class="uk-radio" type="radio" name="radio1"> Option 01</label>
+                                        <br>
+                                        <label>
+                                            <input class="uk-radio" type="radio" name="radio1"> Option 02</label>
+                                    </div>
+                                </div>
+-->
+                                <hr>
+                                <p class="mdl-typography--title">Score assessment</p>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">PPS</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">Geriatric depression scale</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+                                    </div>
+                                </div>
+                                <hr>
+                                <p class="mdl-typography--title">Mini mental state examination
+
+                                </p>
+
+
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">Orientation to time</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">Orientation to place</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">Registration</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">
+                                        Attention / Calculation <span class="uk-text-warning">*</span>
+                                    </label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+
+                                        <span class="uk-text-muted uk-text-meta">(ไม่ต้องลงข้อมูล ถ้าหากผู้ป่วยไม่ได้เรียนหนังสือ)</span>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">Recall</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">Naming</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">Repetition</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">Verbal command</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">Written command
+                                        <span class="uk-text-warning">*</span>
+                                    </label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+
+                                        <span class="uk-text-muted uk-text-meta">(ไม่ต้องลงข้อมูล ถ้าหากผู้ป่วยไม่ได้เรียนหนังสือ)</span>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">Writing
+                                        <span class="uk-text-warning">*</span>
+                                    </label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+
+                                        <span class="uk-text-muted uk-text-meta">(ไม่ต้องลงข้อมูล ถ้าหากผู้ป่วยไม่ได้เรียนหนังสือ)</span>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-select">Visuoconstruction</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-input uk-form-width-small uk-form-small" type="number" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text"> Psychological and Social peroblem</label>
+                                    <div class="uk-form-controls">
+                                        <textarea class="uk-textarea uk-width-1-2" rows="3" placeholder=" Psychological and Social peroblem..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Other problem</label>
+                                    <div class="uk-form-controls">
+                                        <textarea class="uk-textarea uk-width-1-2" rows="3" placeholder="Other problem..."></textarea>
+                                    </div>
+                                </div>
+                                <hr>
+                                <p class="mdl-typography--title">Summarized</p>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Assessment and Plan</label>
+                                    <div class="uk-form-controls">
+                                        <textarea class="uk-textarea uk-width-1-2" rows="3" placeholder="Assessment and Plan..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">Goal</label>
+                                    <div class="uk-form-controls">
+                                        <textarea class="uk-textarea uk-width-1-2" rows="3" placeholder="Goal..."></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="mdl-step__actions">
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                                ย้อนกลับ
+                            </button>
+                            <div class="mdl-layout-spacer"></div>
+                            <button class="mdl-button mdl-js-button mdl-button--primary">
+                                ถัดไป
+                            </button>
+                        </div>
+                    </li>
+                    <li class="mdl-step">
+                        <span class="mdl-step__label">
+          <span class="mdl-step__title">
+            <span class="mdl-step__title-text">สรุปข้อมูลปัญหา</span>
+                        </span>
+                        </span>
+                        <div class="mdl-step__content">
+                            <form class="uk-form-horizontal uk-margin-large">
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">วินิจฉัยหลัก</label>
+                                    <div class="uk-form-controls uk-width-1-2">
+                                        <select class="uk-select">
+                                            <option>ปัญหา</option>
+                                            <option>1 สัปดาห์</option>
+                                            <option>2 สัปดาห์</option>
+                                            <option>3 สัปดาห์</option>
+                                            <option>1 เดือน</option>
+                                            <option>2 เดือน</option>
+                                            <option>3 เดือน</option>
+                                        </select>
+                                    </div>
+
+                                    <!--
+                                        <input list="problem-main" class="uk-search" placeholder="ค้นหาจากรหัส / ชื่อ-นามสกุล">
+                                        <datalist id="problem-main">
+                                            <option value="นพ.ประสงค์ ทรงธรรม" /> 012568
+                                            <option value="นพ.นพดล ชลธาร" /> 013654
+                                            <option value="นพ.คชสร อมรรัตน์" /> 016325
+                                            <option value="พญ.รัตนา พานิชญ์" /> 014251
+                                            <option value="นญ.วิภาวรรณ ใจสุทธิ์" /> 013212
+                                            <option value="นพ.ชลธร รุ่งเจริญ" /> 013625
+                                        </datalist>-->
+
+                                </div>
+                                <hr>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">ปัญหา</label>
+                                    <div class="uk-form-controls uk-width-1-2">
+                                        <select class="uk-select">
+                                            <option>ปัญหา</option>
+                                            <option>1 สัปดาห์</option>
+                                            <option>2 สัปดาห์</option>
+                                            <option>3 สัปดาห์</option>
+                                            <option>1 เดือน</option>
+                                            <option>2 เดือน</option>
+                                            <option>3 เดือน</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text"></label>
+                                    <div class="uk-form-controls">
+                                        <button class="uk-button uk-button-primary uk-button-small">+ เพิ่มปัญหา</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="mdl-step__actions">
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                                ย้อนกลับ
+                            </button>
+                            <div class="mdl-layout-spacer"></div>
+                            <button class="mdl-button mdl-js-button mdl-button--primary">
+                                ถัดไป
+                            </button>
+                        </div>
+                    </li>
+                    <!--step4-->
+                    <li class="mdl-step">
+                        <span class="mdl-step__label">
+          <span class="mdl-step__title">
+            <span class="mdl-step__title-text">สรุปหลังประชุม</span>
+                        </span>
+                        </span>
+                        <div class="mdl-step__content">
+                            <form class="uk-form-horizontal uk-margin-large">
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">สรุปคำแนะนำ</label>
+                                    <div class="uk-form-controls">
+                                        <textarea class="uk-textarea uk-width-1-2" rows="3" placeholder="สรุปคำแนะนำ..."></textarea>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="form-horizontal-text">วางแผนครั้งต่อไป</label>
+                                    <div class="uk-form-controls">
+                                        <input class="uk-radio" type="radio" checked> เยี่ยมบ้านต่อ
+                                        <span>ระยะเวลา:</span>
+                                        <select class="uk-select uk-width-1-3">
+                                            <option>เลือกระยะเวลา</option>
+                                            <option>1 สัปดาห์</option>
+                                            <option>2 สัปดาห์</option>
+                                            <option>3 สัปดาห์</option>
+                                            <option>1 เดือน</option>
+                                            <option>2 เดือน</option>
+                                            <option>3 เดือน</option>
+                                            <option>4 เดือน</option>
+                                            <option>5 เดือน</option>
+                                            <option>6 เดือน</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <div class="uk-form-controls">
+                                        <input class="uk-radio" type="radio"> ปิดเยี่ยมบ้าน
+                                        <span>เหตุผล:</span>
+                                        <select class="uk-select uk-width-1-3">
+                                            <option>เลือกเหตุผล</option>
+                                            <option>ติดต่อผู้ป่วยไม่ได้</option>
+                                            <option>2 สัปดาห์</option>
+                                            <option>3 สัปดาห์</option>
+                                            <option>1 เดือน</option>
+                                            <option>2 เดือน</option>
+                                            <option>3 เดือน</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="mdl-step__actions">
+
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                                ย้อนกลับ
+                            </button>
+                            <div class="mdl-layout-spacer"></div>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+                                บันทึก
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                <!--/.stepper-nonlinear-->
+
+            </div>
+            <!--/.demo-content-->
+        </main>
+    </div>
+
+    <!--custom js-->
+    <script src="js/stepper-nonlinear.js"></script>
+</body>
+
+</html>
