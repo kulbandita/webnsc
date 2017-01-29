@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน (Home visit service management system)</title>
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+    <!--mdl-->
+    <link rel="stylesheet" href="lib/mdl-customize/material.min.css">
+    <link rel="stylesheet" href="lib/mdl-template-dashboard/styles.css">
+
+    <!--font-->
+    <link href="https://fonts.googleapis.com/css?family=Prompt&subset=thai" rel="stylesheet">
+
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!--custom css-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/progress-tab.css">
+    <link rel="stylesheet" href="css/breadcrumb.css">
+    
+</head>
+
+<body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="demo-header mdl-layout__header mdl-color--primary mdl-color-text--white">
+            <div class="mdl-layout__header-row">
+                <img src="img/logo-rama.png" width="50px" style="margin-right: 20px;">
+
+                <div class="mdl-layout-title">
+                    <h6 class="mdl-typography--title">
+                        ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน
+                        <p>ภาควิชาเวชศาสตร์ครอบครัว คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี มหาวิทยาลัยมหิดล</p>
+                    </h6>
+                </div>
+
+                <div class="mdl-layout-spacer"></div>
+
+            </div>
+        </header>
+        <div class="demo-drawer mdl-layout__drawer mdl-color--white mdl-color-text--black">
+            <header class="demo-drawer-header mdl-color--green">
+                <img src="img/user.jpg" class="demo-avatar">
+                <div class="demo-avatar-dropdown">
+                    <span class="mdl-typography--body-2 mdl-color-text--white">นพ.ประสงค์ ทรงธรรม</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons mdl-color-text--white" role="presentation">arrow_drop_down</i>
+                        <span class="visuallyhidden">Accounts</span>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                        <li class="mdl-menu__item">ดูข้อมูลส่วนตัว</li>
+                        <li class="mdl-menu__item">แก้ไขรหัสผ่าน</li>
+                        <li class="mdl-menu__item"><i class="material-icons">exit_to_app</i> ออกจากระบบ</li>
+                    </ul>
+                </div>
+            </header>
+
+            <nav class="demo-navigation mdl-navigation mdl-color--grey-200">
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="index.html">
+                    <i class="mdl-color-text--grey-900 material-icons" role="presentation">home</i> หน้าหลัก
+                </a>
+                <a class="mdl-navigation__link mdl-color--grey-300 mdl-color-text--green" href="patient.html">
+                    <i class="mdl-color-text--green material-icons" role="presentation">folder_shared</i> ผู้ป่วยเยี่ยมบ้าน
+                </a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="calendar.html">
+                    <i class="mdl-color-text--grey-900 material-icons" role="presentation">date_range</i> นัดหมาย
+                </a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="summary.html">
+                    <i class="mdl-color-text--grey-900 material-icons" role="presentation">assignment</i> สรุปเยี่ยมบ้าน
+                </a>
+                <div class="mdl-layout-spacer"></div>
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+            </nav>
+        </div>
+
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid demo-content">
+
+                <div class="mdl-cell mdl-cell--12-col">
+
+                    <ul class="breadcrumb">
+                    <li><a href="patient.html">ผู้ป่วยเยี่ยมบ้าน</a></li>
+                    <li>เพิ่มผู้ป่วยเยี่ยมบ้านใหม่</li>
+                </ul>
+
+                    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--112-col-desktop">
+                        <div class="mdl-card__supporting-text mdl-color-text--black mdl-cell mdl-cell--12-col">
+                            <div class="board mdl-typography--subhead">
+                                <div class="board-inner">
+                                    <ul class="nav nav-tabs four-tabs" id="myTab">
+                                        <div class="liner"></div>
+                                        <li class="active four-tabs">
+                                            <a href="#check-hn-panel" data-toggle="tab" title="ตรวจสอบรหัสโรงพยาบาล">
+                                                <span class="round-tabs one">HN</span>
+                                            </a>
+                                        </li>
+                                        <li class="four-tabs">
+                                            <a href="#part1-panel" data-toggle="tab" title="ข้อมูลทั่วไป">
+                                                <span class="round-tabs two">1</span>
+                                            </a>
+                                        </li>
+                                        <li class="four-tabs">
+                                            <a href="#part2-panel" data-toggle="tab" title="ข้อมูลสุขภาพ">
+                                                <span class="round-tabs three">2</span>
+                                            </a>
+                                        </li>
+                                        <li class="four-tabs">
+                                            <a href="#part3-panel" data-toggle="tab" title="สรุปข้อมูลปัญหา">
+                                                <span class="round-tabs four">3</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--/.board-inner-->
+
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active" id="check-hn-panel">
+                                        <h6 class="mdl-typography--title mdl-color-text--green">ตรวจสอบเลขที่โรงพยาบาล</h6>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">เลขที่โรงพยาบาล</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="hn">
+                                                        <label class="mdl-textfield__label" for="hn">เลขที่โรงพยาบาล</label>
+                                                        <span class="mdl-textfield__error">ข้อมูลนี้ไม่ใช่ตัวเลข</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                สถานะเยี่ยมบ้าน
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                ใหม่
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                ประเภทการเยี่ยมบ้าน
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="homevisit">
+                                                        <input type="radio" id="homevisit" class="mdl-radio__button" name="options" value="1" checked>
+                                                        <span class="mdl-radio__label">Home visit care</span>
+                                                    </label>
+                                                    <br>
+                                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="geriatric">
+                                                        <input type="radio" id="geriatric" class="mdl-radio__button" name="options" value="2">
+                                                        <span class="mdl-radio__label">Geriatric case </span>
+                                                    </label>
+                                                    <br>
+                                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="palliative">
+                                                        <input type="radio" id="palliative" class="mdl-radio__button" name="options" value="3">
+                                                        <span class="mdl-radio__label">Palliative case </span>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-layout-spacer"></div>
+                                            <a href="#part1-panel" data-toggle="tab" title="เริ่มกรอกข้อมูลส่วนที่ 1">
+                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                                                    เริ่มกรอกข้อมูล
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="part1-panel">
+                                        <h6 class="mdl-typography--title mdl-color-text--green">ส่วนที่ 1: ข้อมูลทั่วไป</h6>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                รหัสโรงพยาบาล
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                9785356
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                สถานะเยี่ยมบ้าน
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                ใหม่
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                ประเภทเยี่ยมบ้าน
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                Home visit case
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">เลขบัตรประชาชน</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="[0-9]{13}" id="id-number">
+                                                        <label class="mdl-textfield__label" for="id-number">เลขบัตรประชาชน</label>
+                                                        <span class="mdl-textfield__error">ตัวเลขไม่ครบ 13 หลัก</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <p class="mdl-textfield">ชื่อ-นามสกุล</p>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <select>
+                                                        <option value="1">-- คำนำหน้า --</option>
+                                                        <option value="1">นาย</option>
+                                                        <option value="1">นาง</option>
+                                                        <option value="1">นางสาว</option>
+                                                        <option value="1">เด็กหญิง</option>
+                                                        <option value="1">เด็กชาย</option>
+                                                    </select>
+
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">ชื่อ</label>
+                                                        <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                    </div>
+
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="lname">
+                                                        <label class="mdl-textfield__label" for="lname">นามสกุล</label>
+                                                        <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                เพศ
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <div class="mdl-grid">
+                                                    <form action="#">
+                                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="male">
+                                                            <input type="radio" id="male" class="mdl-radio__button" name="options" value="1" checked>
+                                                            <span class="mdl-radio__label">ชาย</span>
+                                                        </label>
+
+
+
+                                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="female">
+                                                            <input type="radio" id="female" class="mdl-radio__button" name="options" value="2">
+                                                            <span class="mdl-radio__label">หญิง</span>
+                                                        </label>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                วันเกิด
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+
+                                                <select>
+                                                    <option value="volvo">-- วันที่ --</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">4</option>
+                                                    <option value="3">5</option>
+                                                    <option value="3">6</option>
+                                                    <option value="3">7</option>
+                                                    <option value="3">8</option>
+                                                    <option value="3">9</option>
+                                                    <option value="3">10</option>
+                                                    <option value="3">11</option>
+                                                    <option value="3">12</option>
+                                                    <option value="3">13</option>
+                                                    <option value="3">14</option>
+                                                    <option value="3">15</option>
+                                                    <option value="3">16</option>
+                                                    <option value="3">17</option>
+                                                    <option value="3">18</option>
+                                                    <option value="3">19</option>
+                                                    <option value="3">20</option>
+                                                    <option value="3">21</option>
+                                                    <option value="3">22</option>
+                                                    <option value="3">23</option>
+                                                    <option value="3">24</option>
+                                                    <option value="3">25</option>
+                                                    <option value="3">26</option>
+                                                    <option value="3">27</option>
+                                                    <option value="3">28</option>
+                                                    <option value="3">29</option>
+                                                    <option value="3">30</option>
+                                                    <option value="3">31</option>
+                                                </select>
+                                                /
+                                                <select>
+                                                    <option value="volvo">-- เดือน --</option>
+                                                    <option value="saab">มกราคม</option>
+                                                    <option value="opel">กุมภาพันธ์</option>
+                                                    <option value="audi">มีนาคม</option>
+                                                    <option value="audi">เมษายน</option>
+                                                    <option value="audi">พฤษภาคม</option>
+                                                    <option value="audi">มิถุนายน</option>
+                                                    <option value="audi">กรกฎาคม</option>
+                                                    <option value="audi">สิงหาคม</option>
+                                                    <option value="audi">กันยายน</option>
+                                                    <option value="audi">ตุลาคม</option>
+                                                    <option value="audi">พฤศจิกายน</option>
+                                                    <option value="audi">ธันวาคม</option>
+                                                </select>
+                                                /
+                                                <select>
+                                                    <option value="volvo">-- ปีพุทธศักราช --</option>
+                                                    <option value="2559">2559</option>
+                                                    <option value="2558">2558</option>
+                                                    <option value="2557">2557</option>
+                                                    <option value="2556">2556</option>
+                                                    <option value="2555">2555</option>
+                                                    <option value="2555">2554</option>
+                                                    <option value="2555">2553</option>
+                                                    <option value="2555">2552</option>
+                                                    <option value="2555">2551</option>
+                                                    <option value="2555">2550</option>
+                                                    <option value="2555">2549</option>
+                                                    <option value="2555">2548</option>
+                                                    <option value="2555">2547</option>
+                                                    <option value="2555">2546</option>
+                                                    <option value="2555">2545</option>
+                                                    <option value="2555">2544</option>
+                                                    <option value="2555">2543</option>
+                                                    <option value="2555">2542</option>
+                                                    <option value="2555">2541</option>
+                                                    <option value="2555">2540</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                สถานภาพ
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <select>
+                                                    <option value="volvo">-- สถานภาพ --</option>
+                                                    <option value="volvo">โสด</option>
+                                                    <option value="saab">สมรส</option>
+                                                    <option value="opel">หม่าย</option>
+                                                    <option value="audi">หย่าร้าง</option>
+                                                    <option value="audi">แยกกันอยู่</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <p class="mdl-textfield">ศาสนา</p>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+
+                                                <form action="#">
+                                                    <select>
+                                                        <option value="volvo">-- ศาสนา --</option>
+                                                        <option value="saab">พุทธ</option>
+                                                        <option value="opel">คริสต์</option>
+                                                        <option value="audi">อิสลาม</option>
+                                                        <option value="audi">อื่นๆ</option>
+                                                    </select> :
+
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="0[0-9]{9-10}" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">ระบุ</label>
+                                                        <span class="mdl-textfield__error">กรอกไม่ครบตามจำนวน</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                ระดับการศึกษา
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <select>
+                                                        <option value="volvo">-- ระดับการศึกษา --</option>
+                                                        <option value="saab">ประถมศึกษา</option>
+                                                        <option value="opel">มัธยมศึกษา</option>
+                                                        <option value="opel">ปวส / ปวท</option>
+                                                        <option value="audi">ปริญญาตรี</option>
+                                                        <option value="audi">ปริญญาโท</option>
+                                                        <option value="audi">ปริญญาเอก</option>
+                                                        <option value="audi">อื่นๆ</option>
+                                                    </select> :
+
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="0[0-9]{9-10}" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">ระบุ</label>
+                                                        <span class="mdl-textfield__error">กรอกไม่ครบตามจำนวน</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                อาชีพ
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+
+                                                <form action="#">
+                                                    <select>
+                                                        <option value="volvo">-- อาชีพ --</option>
+                                                        <option value="saab">รับราชการ</option>
+                                                        <option value="opel">เอกชน</option>
+                                                        <option value="audi">ธุรกิจส่วนตัว</option>
+                                                        <option value="audi">อื่นๆ</option>
+                                                    </select> :
+
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="0[0-9]{9-10}" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">ระบุ</label>
+                                                        <span class="mdl-textfield__error">กรอกไม่ครบตามจำนวน</span>
+                                                    </div>
+                                                </form>
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                สิทธิการรักษา
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <select>
+                                                    <option value="volvo">-- สิทธิการรักษา --</option>
+                                                    <option value="saab">เบิกตรง</option>
+                                                    <option value="opel">เบิกได้บางส่วน</option>
+                                                    <option value="audi">บัตรทอง</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <h6 class="mdl-typography--title">ข้อมูลการติดต่อ</h6>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">บ้านเลขที่</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">บ้านเลขที่</label>
+                                                        <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">หมู่ที่</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">หมู่ที่</label>
+                                                        <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">อาคาร/หมู่บ้าน</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">อาคาร/หมู่บ้าน</label>
+                                                        <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">ซอย</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">ซอย</label>
+                                                        <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">ถนน</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">ถนน</label>
+                                                        <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">แขวง/ตำบล</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">แขวง/ตำบล</label>
+                                                        <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">เขต/อำเภอ</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">เขต/อำเภอ</label>
+                                                        <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">จังหวัด</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">จังหวัด</label>
+                                                        <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">รหัสไปรษณีย์</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">รหัสไปรษณีย์</label>
+                                                        <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                แผนที่บ้าน
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <button class="mdl-button mdl-js-button mdl-button--raised">
+                                                    <i class="material-icons">add</i> เพิ่มแผนที่บ้าน
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">โทรศัพท์บ้าน</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="0[0-9]{8,9}" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">โทรศัพท์บ้าน</label>
+                                                        <span class="mdl-textfield__error">กรอกตัวเลขไม่ครบ</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">โทรศัพท์มือถือ</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="0[0-9]{8,9}" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">โทรศัพท์มือถือ</label>
+                                                        <span class="mdl-textfield__error">กรอกตัวเลขไม่ครบ</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">โทรศัพท์ที่ทำงาน</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="0[0-9]{8,9}" id="fname">
+                                                        <label class="mdl-textfield__label" for="fname">โทรศัพท์ที่ทำงาน</label>
+                                                        <span class="mdl-textfield__error">กรอกตัวเลขไม่ครบ</span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <h6 class="mdl-typography--title">ครอบครัว</h6>
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                แผนผังครอบครัว
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+
+                                                <button class="mdl-button mdl-js-button mdl-button--raised">
+                                                    <i class="material-icons">add</i> เพิ่มแผนผังครอบครัว
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                <div class="mdl-textfield">ข้อมูลญาติ</div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <div class="mdl-grid">
+                                                    <div class="mdl-cell--4-col">
+                                                        <div class="mdl-textfield">ชื่อ-นามสกุล</div>
+                                                    </div>
+                                                    <div class="mdl-cell--8-col">
+
+                                                        <form action="#">
+                                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                                <input class="mdl-textfield__input" type="text" pattern="[^0-9]" id="fname">
+                                                                <label class="mdl-textfield__label" for="fname">ชื่อ-นามสกุล</label>
+                                                                <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                    <div class="mdl-cell--4-col">
+                                                        <div class="mdl-textfield">เกี่ยวข้องเป็น</div>
+                                                    </div>
+                                                    <div class="mdl-cell--8-col">
+                                                        <form action="#">
+                                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                                <input class="mdl-textfield__input" type="text" pattern="[^0-9]" id="fname">
+                                                                <label class="mdl-textfield__label" for="fname">เกี่ยวข้องเป็น</label>
+                                                                <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                    <div class="mdl-cell--4-col">
+                                                        <div class="mdl-textfield">เบอร์โทร</div>
+                                                    </div>
+                                                    <div class="mdl-cell--8-col">
+                                                        <form action="#">
+                                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                                <input class="mdl-textfield__input" type="text" pattern="0[0-9]{9-10}" id="fname">
+                                                                <label class="mdl-textfield__label" for="fname">เบอร์โทร</label>
+                                                                <span class="mdl-textfield__error">กรอกไม่ครบตามจำนวน</span>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+
+                                                <button class="mdl-button mdl-js-button mdl-button--raised">
+                                                    <i class="material-icons">add</i> เพิ่มข้อมูลญาติ
+                                                </button>
+
+
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <p class="mdl-typography--title">แพทย์ผู้ดูแล</p>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                แพทย์เจ้าของไข้
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <select>
+                                                    <option value="volvo">-- แพทย์เจ้าของไข้ --</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                แพทย์เยี่ยมบ้าน
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+
+                                                <select>
+                                                    <option value="volvo">-- แพทย์เยี่ยมบ้าน --</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                    <option value="3">3</option>
+                                                </select>
+
+
+                                                <button class="mdl-button mdl-js-button mdl-button--raised">
+                                                    <i class="material-icons">add</i> เพิ่มแพทย์เยี่ยมบ้าน
+                                                </button>
+
+
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-layout-spacer"></div>
+                                            <button class="mdl-button mdl-js-button mdl-button--accent">
+                                                <a href="#part2-panel" data-toggle="tab" title="ตรวจสอบรหัสโรงพยาบาล">
+                                                ต่อไป <i class="material-icons">keyboard_arrow_right</i>
+                                            </a>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="part2-panel">
+                                        <h6 class="mdl-typography--title mdl-color-text--green">ส่วนที่ 2: ข้อมูลสุขภาพ</h6>
+
+                                        <h6 class="mdl-typography--title">ประวัติการรักษา</h6>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                การผ่าตัด
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <div class="mdl-grid">
+                                                    <div class="mdl-cell--2-col">
+                                                        <form action="#">
+                                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="surgrey">
+                                                                <input type="checkbox" id="surgrey" class="mdl-checkbox__input">
+                                                                <span class="mdl-checkbox__label">มี:</span>
+                                                            </label>
+                                                        </form>
+                                                    </div>
+                                                    <div class="mdl-cell--10-col">
+                                                        <form action="#">
+                                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                                <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                                <label class="mdl-textfield__label" for="fname">ระบุ</label>
+                                                                <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                การแพ้ยา/แพ้อาหาร
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <div class="mdl-grid">
+                                                    <div class="mdl-cell--2-col">
+                                                        <form action="#">
+                                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="food">
+                                                                <input type="checkbox" id="food" class="mdl-checkbox__input">
+                                                                <span class="mdl-checkbox__label">มี:</span>
+                                                            </label>
+                                                        </form>
+                                                    </div>
+                                                    <div class="mdl-cell--10-col">
+                                                        <form action="#">
+                                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                                <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                                <label class="mdl-textfield__label" for="fname">ระบุ</label>
+                                                                <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                แพทย์ทางเลือก
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <div class="mdl-grid">
+                                                    <div class="mdl-cell--2-col">
+                                                        <form action="#">
+                                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="alt-med">
+                                                                <input type="checkbox" id="alt-med" class="mdl-checkbox__input">
+                                                                <span class="mdl-checkbox__label">มี:</span>
+                                                            </label>
+                                                        </form>
+                                                    </div>
+                                                    <div class="mdl-cell--10-col">
+                                                        <form action="#">
+                                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                                <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
+                                                                <label class="mdl-textfield__label" for="fname">ระบุ</label>
+                                                                <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <h6 class="mdl-typography--title">พฤติกรรมเสี่ยงในปัจจุบัน</h6>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                สุรา
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <div class="mdl-grid">
+                                                    <div class="mdl-cell--12-col">
+                                                        <form action="#">
+                                                            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="alcohol-1">
+                                                                <input type="radio" id="alcohol-1" class="mdl-radio__button" name="options" value="1" checked>
+                                                                <span class="mdl-radio__label"><u>ไม่</u>เคยดื่ม</span>
+                                                            </label>
+
+                                                            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="alcohol-2">
+                                                                <input type="radio" id="alcohol-2" class="mdl-radio__button" name="options" value="2">
+                                                                <span class="mdl-radio__label">ดื่มอยู่</span>
+                                                            </label>
+
+                                                            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="alcohol-3">
+                                                                <input type="radio" id="alcohol-3" class="mdl-radio__button" name="options" value="3">
+                                                                <span class="mdl-radio__label">เลิกดื่มแล้ว</span>
+                                                            </label>
+                                                        </form>
+                                                    </div>
+                                                    
+                                                    <h5 class="mdl-typography--subhead">ถ้าเคยดื่ม หรือ กำลังดื่มอยู่</h5>
+
+                                                    <div class="mdl-cell--12-col">
+                                                        <form action="#">
+                                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="drink">
+                                                                <input type="checkbox" id="drink" class="mdl-checkbox__input">
+                                                                <span class="mdl-checkbox__label">มีปัญหา เกี่ยวกับการดื่ม</span>
+                                                            </label>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                บุหรี่
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <div class="mdl-grid">
+                                                    <form action="#">
+                                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="cigarette-1">
+                                                            <input type="radio" id="cigarette-1" class="mdl-radio__button" name="options" value="1" checked>
+                                                            <span class="mdl-radio__label"><u>ไม่</u>เคยสูบ</span>
+                                                        </label>
+                                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="cigarette-2">
+                                                            <input type="radio" id="cigarette-2" class="mdl-radio__button" name="options" value="2">
+                                                            <span class="mdl-radio__label">สูบอยู่</span>
+                                                        </label>
+
+                                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="cigarette-3">
+                                                            <input type="radio" id="cigarette-3" class="mdl-radio__button" name="options" value="3">
+                                                            <span class="mdl-radio__label">เลิกสูบแล้ว</span>
+                                                        </label>
+                                                    </form>
+                                                    <h5 class="mdl-typography--subhead">ถ้าท่านกำลังสูบ หรือเลิกสูบแล้ว โปรดระบุปริมาณการสูบบุหรี่</h5>
+
+                                                    <div class="mdl-grid">
+                                                        <div class="mdl-cell--4-col">
+                                                            <div class="mdl-textfield">จำนวนมวน</div>
+                                                        </div>
+                                                        <div class="mdl-cell--8-col">
+                                                            <form action="#">
+                                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                                    <input class="mdl-textfield__input" type="text" pattern="[^0-9]" id="fname">
+                                                                    <label class="mdl-textfield__label" for="fname">จำนวนมวน / วัน</label>
+                                                                    <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+
+                                                        <div class="mdl-cell--4-col">
+                                                            <div class="mdl-textfield">ระยะเวลาการสูบ</div>
+                                                        </div>
+                                                        <div class="mdl-cell--8-col">
+                                                            <form action="#">
+                                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                                    <input class="mdl-textfield__input" type="text" pattern="[^0-9]" id="fname">
+                                                                    <label class="mdl-textfield__label" for="fname">ระยะเวลาการสูบ / ปี</label>
+                                                                    <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <h6 class="mdl-typography--title">ประวัติครอบครัว</h6>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                สถานะทางการเงิน
+                                                <div id="tt4" class="icon material-icons">info_outline</div>
+                                                <div class="mdl-tooltip" for="tt4">
+                                                    (เพิ่ม help)
+                                                    <br>การงานมีปัญหาคือระดับใด?
+                                                </div>
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <div class="mdl-grid">
+                                                    <div class="mdl-cell--12-col">
+                                                        <form action="#">
+                                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="money">
+                                                                <input type="checkbox" id="money" class="mdl-checkbox__input">
+                                                                <span class="mdl-checkbox__label">มีปัญหา</span>
+                                                            </label>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                ประวัติโรคในครอบครัว
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+
+                                                <div class="mdl-grid">
+                                                    <div class="mdl-cell--12-col">
+                                                        <form action="#">
+                                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="hypertension">
+                                                                <input type="checkbox" id="hypertension" class="mdl-checkbox__input">
+                                                                <span class="mdl-checkbox__label">Hypertension</span>
+                                                            </label>
+
+                                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="diabetes-mellitus">
+                                                                <input type="checkbox" id="diabetes-mellitus" class="mdl-checkbox__input">
+                                                                <span class="mdl-checkbox__label">Diabetes mellitus</span>
+                                                            </label>
+
+                                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="dyslipidemia">
+                                                                <input type="checkbox" id="dyslipidemia" class="mdl-checkbox__input">
+                                                                <span class="mdl-checkbox__label">Dyslipidemia</span>
+                                                            </label>
+
+                                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="stroke">
+                                                                <input type="checkbox" id="stroke" class="mdl-checkbox__input">
+                                                                <span class="mdl-checkbox__label">Stroke</span>
+                                                            </label>
+
+                                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="cad">
+                                                                <input type="checkbox" id="cad" class="mdl-checkbox__input">
+                                                                <span class="mdl-checkbox__label">CAD</span>
+                                                            </label>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mdl-grid">
+                                                    <div class="mdl-cell--4-col">
+                                                        <form>
+                                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="cancer">
+                                                                <input type="checkbox" id="cancer" class="mdl-checkbox__input">
+                                                                <span class="mdl-checkbox__label">cancer:</span>
+                                                            </label>
+                                                        </form>
+                                                    </div>
+                                                    <div class="mdl-cell--8-col">
+                                                        <form action="#">
+                                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                                <input class="mdl-textfield__input" type="text" pattern="[^0-9]" id="fname">
+                                                                <label class="mdl-textfield__label" for="fname">ระบุ</label>
+                                                                <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class="mdl-grid">
+                                                    <div class="mdl-cell--4-col">
+                                                        <form>
+                                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="other">
+                                                                <input type="checkbox" id="other" class="mdl-checkbox__input">
+                                                                <span class="mdl-checkbox__label">อื่นๆ:</span>
+                                                            </label>
+                                                        </form>
+                                                    </div>
+                                                    <div class="mdl-cell--8-col">
+                                                        <form action="#">
+                                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                                <input class="mdl-textfield__input" type="text" pattern="[^0-9]" id="fname">
+                                                                <label class="mdl-textfield__label" for="fname">ระบุ</label>
+                                                                <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+
+                                        <div class="mdl-grid">
+                                            <a href="#part1-panel" data-toggle="tab" title="">
+                                                <button class="mdl-button mdl-js-button mdl-button--accent mdl-typography--button">
+                                                    <i class="material-icons">keyboard_arrow_left</i> ย้อนกลับ
+                                                </button>
+                                            </a>
+                                            <div class="mdl-layout-spacer"></div>
+                                            <a href="#part3-panel" data-toggle="tab" title="">
+                                                <button class="mdl-button mdl-js-button mdl-button--accent mdl-typography--button">
+                                                    ต่อไป <i class="material-icons">keyboard_arrow_right</i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="part3-panel">
+                                        <h6 class="mdl-typography--title mdl-color-text--green">ส่วนที่ 3: สรุปปัญหา</h6>
+
+                                        <h6 class="mdl-typography--title">รหัสการวินิจฉัยปัญหาผู้ป่วย</h6>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                วินิจฉัยหลัก
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <select>
+                                                    <option value="volvo">-- วินิจฉัยหลัก --</option>
+                                                    <option value="1">B02 Zoster [herpez zoster]</option>
+                                                    <option value="2">B03 Smallpox</option>
+                                                    <option value="3">B04 Monkeypox</option>
+                                                    <option value="3">B05 Measles</option>
+                                                    <option value="3">B06 Rubella [German measles]</option>
+                                                    <option value="3">B07 Viral warts</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell--4-col">
+                                                ปัญหา
+                                            </div>
+                                            <div class="mdl-cell--8-col">
+                                                <select>
+                                                    <option value="volvo">-- ปัญหา --</option>
+                                                    <option value="1">B02 Zoster [herpez zoster]</option>
+                                                    <option value="2">B03 Smallpox</option>
+                                                    <option value="3">B04 Monkeypox</option>
+                                                    <option value="3">B05 Measles</option>
+                                                    <option value="3">B06 Rubella [German measles]</option>
+                                                    <option value="3">B07 Viral warts</option>
+                                                </select>
+                                                <button class="mdl-button mdl-js-button mdl-button--raised">
+                                                    <i class="material-icons">add</i> เพิ่มปัญหาที่พบ
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+
+                                        <div class="mdl-grid">
+                                            <a href="#part2-panel" data-toggle="tab" title="">
+                                                <button class="mdl-button mdl-js-button mdl-button--accent mdl-typography--button">
+                                                    <i class="material-icons">keyboard_arrow_left</i> ย้อนกลับ
+                                                </button>
+                                            </a>
+
+                                            <div class="mdl-layout-spacer"></div>
+
+                                            <a href="index.html">
+                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                                                    บันทึก
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.board-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/jquery-2.2.2.min.js"></script>
+    <script src="lib/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="lib/mdl/material.min.js"></script>
+</body>
+
+</html>

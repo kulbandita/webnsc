@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน (Home visit service management system)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--mdl-->
+    <link rel="stylesheet" href="lib/mdl/material.min.css">
+    <link rel="stylesheet" href="lib/mdl-template-dashboard/styles.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="lib/mdl/material.min.js"></script>
+
+    <!--mdl-stepper-->
+    <link rel="stylesheet" href="lib/mdl-stepper/stepper.min.css">
+    <script src="lib/mdl-stepper/stepper.min.js"></script>
+
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!--custom css-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font.css">
+
+</head>
+
+<body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="demo-header mdl-layout__header mdl-color--primary mdl-color-text--white">
+            <div class="mdl-layout__header-row">
+                <img src="img/logo-rama.png" width="50px" style="margin-right: 20px;">
+
+                <div class="mdl-layout-title">
+                    <h6 class="mdl-typography--title">
+                        ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน
+                        <p>ภาควิชาเวชศาสตร์ครอบครัว คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี มหาวิทยาลัยมหิดล</p>
+                    </h6>
+                </div>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <div class="demo-drawer mdl-layout__drawer">
+            <header class="demo-drawer-header mdl-color--primary">
+                <img src="img/user.jpg" class="demo-avatar">
+                <div class="demo-avatar-dropdown">
+                    <span>นพ.ประสงค์ ทรงธรรม</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons" role="presentation">arrow_drop_down</i>
+                        <span class="visuallyhidden">Accounts</span>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                        <li class="mdl-menu__item">ดูข้อมูลส่วนตัว</li>
+                        <li class="mdl-menu__item">แก้ไขรหัสผ่าน</li>
+                        <li class="mdl-menu__item"><i class="material-icons">exit_to_app</i> ออกจากระบบ</li>
+                    </ul>
+                </div>
+            </header>
+            <nav class="demo-navigation mdl-navigation mdl-color--grey-200">
+                <a class="mdl-navigation__link mdl-color-text--green" href="index.html"><i class="material-icons mdl-color-text--green" role="presentation">home</i>หน้าหลัก</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="patient.html"><i class="mdl-color-text--grey-900 material-icons" role="presentation">folder_shared</i>ผู้ป่วยเยี่ยมบ้าน</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="calendar.html"><i class="mdl-color-text--grey-900 material-icons" role="presentation">date_range</i>นัดหมาย</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="summary.html"><i class="mdl-color-text--grey-900 material-icons" role="presentation">assignment</i>สรุปเยี่ยมบ้าน</a>
+                <div class="mdl-layout-spacer"></div>
+            </nav>
+        </div>
+
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid demo-content">
+                <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+                    <div class="mdl-card__menu">
+                        <!--upper right corner-->
+                    </div>
+                    <div class="mdl-card__supporting-text mdl-color-text--black mdl-cell mdl-cell--12-col">
+                        <h5>สรุปผลเยี่ยมบ้าน</h5>
+                        <form action="#">
+                            <div class="mdl-grid">
+                                <div class="mdl-cell--2-col mdl-cell--2-col-tablet">เหตุผลการเยี่ยมบ้าน</div>
+                                <div class="mdl-cell--10-col mdl-cell--6-col-tablet">
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="assessment">
+                                        <input type="radio" id="assessment" class="mdl-radio__button" name="reason" value="1" checked>
+                                        <span class="mdl-radio__label">Assessment</span>
+                                    </label>
+                                    <br>
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="illness">
+                                        <input type="radio" id="illness" class="mdl-radio__button" name="reason" value="2">
+                                        <span class="mdl-radio__label">Illness management</span>
+                                    </label>
+                                    <br>
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="palliative">
+                                        <input type="radio" id="palliative" class="mdl-radio__button" name="reason" value="3">
+                                        <span class="mdl-radio__label">Palliative</span>
+                                    </label>
+                                    <br>
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="post">
+                                        <input type="radio" id="post" class="mdl-radio__button" name="reason" value="4">
+                                        <span class="mdl-radio__label">Post hospitalized</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <!--/.mdl-grid-->
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell--2-col mdl-cell--2-col-tablet">ที
+                                    มแพทย์เยี่ยมบ้าน
+                                </div>
+                                <div class="mdl-cell--10-col mdl-cell--6-col-tablet">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                                        <i class="material-icons">add</i> เพิ่มแพทย์
+                                    </button>
+                                </div>
+                            </div>
+                            <!--/.mdl-grid-->
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell--3-col mdl-cell--8-col-tablet">
+                                    ยาที่ใช้ปัจจุบันและยาที่ซื้อกินเอง
+                                </div>
+                                <div class="mdl-cell--9-col mdl-cell--8-col-tablet">
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <textarea class="mdl-textfield__input" type="text" rows="2" id="sample5"></textarea>
+                                        <label class="mdl-textfield__label" for="sample5">ยาที่ใช้ปัจจุบัน และยาที่ซื้อกินเอง...
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.mdl-grid-->
+                            
+                            <p class="mdl-typography--title">Impairment / Immobility</p>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell--3-col">
+                                    Basic activities of daily living
+                                </div>
+                                <div class="mdl-cell--9-col">
+                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">No</span>
+                                        </label>
+
+                                    <div class="mdl-cell--2-col">
+                                        <p>Problem</p>
+                                    </div>
+                                    <div class="mdl-cell--8-col">
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.mdl-grid-->
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell--3-col">
+                                    Instrumental activities of daily living
+                                </div>
+                                <div class="mdl-cell--9-col">
+                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">No</span>
+                                        </label>
+
+                                    <div class="mdl-cell--2-col">
+                                    </div>
+                                    <div class="mdl-cell--8-col">
+                                        Problem
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.mdl-grid-->
+
+                            <p class="mdl-typography--title">Nutrition</p>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--2-col">
+                                    Nutritional status
+                                </div>
+                                <div class="mdl-cell mdl-cell--10-col">
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="assessment">
+                                        <input type="radio" id="assessment" class="mdl-radio__button" name="reason" value="1" checked>
+                                        <span class="mdl-radio__label">Assessment</span>
+                                    </label>
+                                    <br>
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="assessment">
+                                        <input type="radio" id="assessment" class="mdl-radio__button" name="reason" value="1" checked>
+                                        <span class="mdl-radio__label">Assessment</span>
+                                    </label>
+                                    <br>
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="assessment">
+                                        <input type="radio" id="assessment" class="mdl-radio__button" name="reason" value="1" checked>
+                                        <span class="mdl-radio__label">Assessment</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <!--/.mdl-grid-->
+
+                            <p class="mdl-typography--title">Home Environment / Safety</p>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--2-col">Risk</div>
+                                <div class="mdl-cell mdl-cell--10-col">
+
+                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                        <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                        <span class="mdl-checkbox__label">Risk</span>
+                                    </label>
+
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                        <input class="mdl-textfield__input" type="text" id="sample3">
+                                        <label class="mdl-textfield__label" for="sample3">Place at risk</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.mdl-grid-->
+
+                            <hr>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--2-col">TEMP</div>
+                                <div class="mdl-cell mdl-cell--10-col"></div>
+                            </div>
+                            <!--/.mdl-grid-->
+
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="sample3">
+                                <label class="mdl-textfield__label" for="sample3">name</label>
+                            </div>
+
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="sample3">
+                                <label class="mdl-textfield__label" for="sample3">lastname</label>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        footer
+                    </div>
+                </div>
+                <!--/.mdl-card-->
+
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

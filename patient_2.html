@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน (Home visit service management system)</title>
+
+    <!--mdl-->
+    <link rel="stylesheet" href="lib/mdl-customize/material.min.css">
+    <link rel="stylesheet" href="lib/mdl-template-dashboard/styles.css">
+
+    <!--font-->
+    <link href="https://fonts.googleapis.com/css?family=Prompt&subset=thai" rel="stylesheet">
+
+    <!--icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!--custom css-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/breadcrumb.css">
+
+</head>
+
+<body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="demo-header mdl-layout__header mdl-color--primary mdl-color-text--white">
+            <div class="mdl-layout__header-row">
+                <img src="img/logo-rama.png" width="50px" style="margin-right: 20px;">
+
+                <div class="mdl-layout-title">
+                    <h6 class="mdl-typography--title">
+                        ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน
+                        <p>ภาควิชาเวชศาสตร์ครอบครัว คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี มหาวิทยาลัยมหิดล</p>
+                    </h6>
+                </div>
+
+                <div class="mdl-layout-spacer"></div>
+
+            </div>
+        </header>
+        <div class="demo-drawer mdl-layout__drawer mdl-color--white mdl-color-text--black">
+            <header class="demo-drawer-header mdl-color--green">
+                <img src="img/user.jpg" class="demo-avatar">
+                <div class="demo-avatar-dropdown">
+                    <span class="mdl-typography--body-2 mdl-color-text--white">นพ.ประสงค์ ทรงธรรม</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons mdl-color-text--white" role="presentation">arrow_drop_down</i>
+                        <span class="visuallyhidden">Accounts</span>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                        <li class="mdl-menu__item">ดูข้อมูลส่วนตัว</li>
+                        <li class="mdl-menu__item">แก้ไขรหัสผ่าน</li>
+                        <li class="mdl-menu__item"><i class="material-icons">exit_to_app</i> ออกจากระบบ</li>
+                    </ul>
+                </div>
+            </header>
+
+            <nav class="demo-navigation mdl-navigation mdl-color--grey-200">
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="index.html"><i class="mdl-color-text--grey-900 material-icons" role="presentation">home</i>หน้าหลัก</a>
+                <a class="mdl-navigation__link mdl-color--grey-300 mdl-color-text--green" href="patient.html"><i class="material-icons mdl-color-text--green" role="presentation">folder_shared</i>ผู้ป่วยเยี่ยมบ้าน</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="calendar.html"><i class="mdl-color-text--grey-900 material-icons" role="presentation">date_range</i>นัดหมาย</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="summary.html"><i class="mdl-color-text--grey-900 material-icons" role="presentation">assignment</i>สรุปเยี่ยมบ้าน</a>
+                <div class="mdl-layout-spacer"></div>
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid demo-content">
+
+                <ul class="breadcrumb">
+                    <li>ผู้ป่วยเยี่ยมบ้าน</li>
+                </ul>
+
+                <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--112-col-desktop">
+                    <div class="mdl-card__menu"></div>
+                    <div class="mdl-card__supporting-text mdl-color-text--grey-600 mdl-cell--12-col">
+                        <h1 class="mdl-typography--title">ค้นหาผู้ป่วยเยี่ยมบ้านในความดูแล</h1>
+                        <div class="mdl-grid">
+                            <div class="mdl-layout-spacer"></div>
+                            <form action="patient_search.html">
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" type="text" id="sample1">
+                                    <label class="mdl-textfield__label" for="sample1">ค้นหา HN หรือ ชื่อ - นามสกุล</label>
+                                </div>
+                                <button class="mdl-button mdl-js-button mdl-button--icon">
+                                    <i class="material-icons">search</i>
+                                </button>
+                            </form>
+                            <div class="mdl-layout-spacer"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell--12-col mdl-cell mdl-cell--12-col-tablet mdl-cell--112-col-desktop">
+                    <div class="mdl-card__menu">
+                        <button id="menu-filter" class="mdl-button mdl-js-button mdl-button--icon">
+                            <i class="material-icons">filter_list</i>
+                        </button>
+                        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="menu-filter">
+                            <li class="mdl-menu__item"><span class="mdl-color-text--accent">ทั้งหมด</span></li>
+                            <li class="mdl-menu__item">ผู้ป่วยใหม่</li>
+                            <li class="mdl-menu__item">เยี่ยมต่อ</li>
+                            <li class="mdl-menu__item">ปิดเยี่ยมบ้าน</li>
+                        </ul>
+                        
+                        <button id="menu-function" class="mdl-button mdl-js-button mdl-button--icon">
+                            <i class="material-icons">more_vert</i>
+                        </button>
+                        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="menu-function">
+                            <li class="mdl-menu__item"><a href="patient_add.html"><i class="material-icons">person_add</i> เพิ่ม</a></li>
+                            <li class="mdl-menu__item"><i class="material-icons">print</i> พิมพ์</li>
+                            <li class="mdl-menu__item"><i class="material-icons">delete</i> ลบ</li>
+                        </ul>
+                    </div>
+                    <div class="mdl-card__supporting-text mdl-color-text--grey-600 mdl-cell mdl-cell--12-col">
+                        <h1 class="mdl-typography--title">ผู้ป่วยเยี่ยมบ้านในความดูแล (ทั้งหมด)</h1>
+                        <!--table-->
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-cell--12-col">
+                            <thead>
+                                <tr>
+                                    <th class="mdl-data-table__header--sorted-ascending">HN</th>
+                                    <th class="mdl-data-table__cell--non-numeric">ชื่อ-นามสกุล</th>
+                                    <th>สถานะ</th>
+                                    <th>เยี่ยมแล้ว (ครั้ง)</th>
+                                    <th>เยี่ยมครั้งสุดท้าย</th>
+                                    <th>เยี่ยมครั้งต่อไป</th>
+                                    <th>แก้ไข</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--close-->
+                                <tr>
+                                    <td>5987452</td>
+                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง มาลิณี เกียรติขจร</a></td>
+                                    <td>ปิด</td>
+                                    <td>15</td>
+                                    <td>25/5/2559</td>
+                                    <td>25/5/2560</td>
+                                    <td><i class="material-icons">edit</i></td>
+                                </tr>
+                                <tr>
+                                    <td>6215845</td>
+                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย รุ่งโรจน์ เรืองรอง</a></td>
+                                    <td>ปิด</td>
+                                    <td>18</td>
+                                    <td>25/5/2559</td>
+                                    <td>25/5/2560</td>
+                                    <td><i class="material-icons">edit</i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <div class="mdl-grid">
+                            <span class="margin-right-10">แสดง</span>
+                            <select>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                            </select>
+                            <span class="margin-left-10">รายชื่อต่อหน้า</span>
+                            
+                            <div class="mdl-layout-spacer"></div>
+                            
+                            <a href="patient.html"><button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">navigate_before</i>
+                            </button></a>
+                            
+                            <span class="margin-left-10 margin-right-10">11-12 จาก 12 รายชื่อ</span>
+
+                            <button disabled class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">navigate_next</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--/.mdl-card-->
+            </div>
+        </main>
+    </div>
+    <script src="lib/mdl/material.min.js"></script>
+</body>
+
+</html>

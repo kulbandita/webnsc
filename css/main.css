@@ -1,0 +1,89 @@
+/*
+* {
+    box-sizing: border-box;
+}
+*/
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:hover.mdl-navigation__link {
+/*  background-color: rgb(226, 226, 226) !important;  */
+    background-color: #C8E6C9 !important;
+    transition: 0.5s;
+}
+
+tr {
+   /*font-size: 120%;*/
+}
+
+th {
+    font-size: 100% !important; 
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}
+
+.margin-right-20 {
+    margin-right: 20px;
+}
+
+.logo-report {
+    width: 60%;
+}
+
+.dl-horizontal dt {
+    float: left;
+    min-width: 20%;
+    text-align: right;
+}
+
+.dl-horizontal dd {
+  margin: 10px;
+    margin-left: 25%;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+dialog {
+    width: 500px !important;
+    height: 465px !important;
+}
+
+/* --------------- MDL --------------- */
+
+.demo-content {
+    padding-top: 20px;
+}
+
+/* --------------- stepper --------------- */
+
+ul.mdl-stepper.mdl-stepper--horizontal {
+    max-width: 100%;
+    height: 100% !important;
+    margin-top: 0;
+}
+
+.mdl-step__content {
+/*   min-height: 100%;*/
+}
+
+/* --------------- UIKit --------------- */
+
+.uk-text-small {
+    font-size: 10px;
+}
+
+/**/
