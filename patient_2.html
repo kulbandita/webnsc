@@ -10,11 +10,10 @@
     <title>ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน (Home visit service management system)</title>
 
     <!--mdl-->
-    <link rel="stylesheet" href="lib/mdl-customize/material.min.css">
+    <link rel="stylesheet" href="lib/mdl/material.min.css">
     <link rel="stylesheet" href="lib/mdl-template-dashboard/styles.css">
-
-    <!--font-->
-    <link href="https://fonts.googleapis.com/css?family=Prompt&subset=thai" rel="stylesheet">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="lib/mdl/material.min.js"></script>
 
     <!--icon-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -22,7 +21,6 @@
     <!--custom css-->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/breadcrumb.css">
 
 </head>
 
@@ -43,15 +41,14 @@
 
             </div>
         </header>
-        <div class="demo-drawer mdl-layout__drawer mdl-color--white mdl-color-text--black">
-            <header class="demo-drawer-header mdl-color--green">
+        <div class="demo-drawer mdl-layout__drawer">
+            <header class="demo-drawer-header mdl-color--primary">
                 <img src="img/user.jpg" class="demo-avatar">
                 <div class="demo-avatar-dropdown">
-                    <span class="mdl-typography--body-2 mdl-color-text--white">นพ.ประสงค์ ทรงธรรม</span>
+                    <span class="mdl-color-text--white">นพ.ประสงค์ ทรงธรรม</span>
                     <div class="mdl-layout-spacer"></div>
                     <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                        <i class="material-icons mdl-color-text--white" role="presentation">arrow_drop_down</i>
-                        <span class="visuallyhidden">Accounts</span>
+                        <i class="material-icons mdl-color-text--white">arrow_drop_down</i>
                     </button>
                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
                         <li class="mdl-menu__item">ดูข้อมูลส่วนตัว</li>
@@ -60,27 +57,28 @@
                     </ul>
                 </div>
             </header>
-
             <nav class="demo-navigation mdl-navigation mdl-color--grey-200">
-                <a class="mdl-navigation__link mdl-color-text--grey-900" href="index.html"><i class="mdl-color-text--grey-900 material-icons" role="presentation">home</i>หน้าหลัก</a>
-                <a class="mdl-navigation__link mdl-color--grey-300 mdl-color-text--green" href="patient.html"><i class="material-icons mdl-color-text--green" role="presentation">folder_shared</i>ผู้ป่วยเยี่ยมบ้าน</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-900" href="calendar.html"><i class="mdl-color-text--grey-900 material-icons" role="presentation">date_range</i>นัดหมาย</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-900" href="summary.html"><i class="mdl-color-text--grey-900 material-icons" role="presentation">assignment</i>สรุปเยี่ยมบ้าน</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="index.html">
+                    <i class="material-icons mdl-color-text--grey-900" role="presentation">home</i> หน้าหลัก
+                </a>
+                <a class="mdl-navigation__link mdl-color-text--green" href="patient.html">
+                    <i class="material-icons mdl-color-text--green">folder_shared</i> ผู้ป่วยเยี่ยมบ้าน
+                </a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="calendar.html">
+                    <i class="material-icons mdl-color-text--grey-900">date_range</i> นัดหมาย
+                </a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="summary.html">
+                    <i class="material-icons mdl-color-text--grey-900">assignment</i> สรุปเยี่ยมบ้าน
+                </a>
                 <div class="mdl-layout-spacer"></div>
-                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
             </nav>
         </div>
         <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
-
-                <ul class="breadcrumb">
-                    <li>ผู้ป่วยเยี่ยมบ้าน</li>
-                </ul>
-
                 <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--112-col-desktop">
                     <div class="mdl-card__menu"></div>
-                    <div class="mdl-card__supporting-text mdl-color-text--grey-600 mdl-cell--12-col">
-                        <h1 class="mdl-typography--title">ค้นหาผู้ป่วยเยี่ยมบ้านในความดูแล</h1>
+                    <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col">
+                        <p class="mdl-typography--title">ค้นหาผู้ป่วยเยี่ยมบ้านในความดูแล</p>
                         <div class="mdl-grid">
                             <div class="mdl-layout-spacer"></div>
                             <form action="patient_search.html">
@@ -108,7 +106,7 @@
                             <li class="mdl-menu__item">เยี่ยมต่อ</li>
                             <li class="mdl-menu__item">ปิดเยี่ยมบ้าน</li>
                         </ul>
-                        
+
                         <button id="menu-function" class="mdl-button mdl-js-button mdl-button--icon">
                             <i class="material-icons">more_vert</i>
                         </button>
@@ -167,13 +165,15 @@
                                 <option>50</option>
                             </select>
                             <span class="margin-left-10">รายชื่อต่อหน้า</span>
-                            
+
                             <div class="mdl-layout-spacer"></div>
-                            
-                            <a href="patient.html"><button class="mdl-button mdl-js-button mdl-button--icon">
-                                <i class="material-icons">navigate_before</i>
-                            </button></a>
-                            
+
+                            <a href="patient.html">
+                                <button class="mdl-button mdl-js-button mdl-button--icon">
+                                    <i class="material-icons">navigate_before</i>
+                                </button>
+                            </a>
+
                             <span class="margin-left-10 margin-right-10">11-12 จาก 12 รายชื่อ</span>
 
                             <button disabled class="mdl-button mdl-js-button mdl-button--icon">
@@ -186,7 +186,6 @@
             </div>
         </main>
     </div>
-    <script src="lib/mdl/material.min.js"></script>
 </body>
 
 </html>

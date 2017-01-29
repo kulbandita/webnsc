@@ -12,6 +12,8 @@
     <!--mdl-->
     <link rel="stylesheet" href="lib/mdl/material.min.css">
     <link rel="stylesheet" href="lib/mdl-template-dashboard/styles.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="lib/mdl/material.min.js"></script>
 
     <!--icon-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -19,7 +21,6 @@
     <!--custom css-->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/font.css">
-
 </head>
 
 <body>
@@ -27,23 +28,20 @@
         <header class="demo-header mdl-layout__header mdl-color--primary mdl-color-text--white">
             <div class="mdl-layout__header-row">
                 <img src="img/logo-rama.png" width="50px" style="margin-right: 20px;">
-
                 <div class="mdl-layout-title">
                     <h6 class="mdl-typography--title">
                         ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน
                         <p>ภาควิชาเวชศาสตร์ครอบครัว คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี มหาวิทยาลัยมหิดล</p>
                     </h6>
                 </div>
-
                 <div class="mdl-layout-spacer"></div>
-
             </div>
         </header>
-        <div class="demo-drawer mdl-layout__drawer mdl-color--white mdl-color-text--black">
+        <div class="demo-drawer mdl-layout__drawer">
             <header class="demo-drawer-header mdl-color--green">
                 <img src="img/user.jpg" class="demo-avatar">
                 <div class="demo-avatar-dropdown">
-                    <span class="mdl-typography--body-2 mdl-color-text--white">นพ.ประสงค์ ทรงธรรม</span>
+                    <span class="mdl-color-text--white">นพ.ประสงค์ ทรงธรรม</span>
                     <div class="mdl-layout-spacer"></div>
                     <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                         <i class="material-icons mdl-color-text--white" role="presentation">arrow_drop_down</i>
@@ -56,29 +54,34 @@
                     </ul>
                 </div>
             </header>
-
             <nav class="demo-navigation mdl-navigation mdl-color--grey-200">
-                <a class="mdl-navigation__link mdl-color--grey-300 mdl-color-text--green" href="index.html"><i class="material-icons mdl-color-text--green" role="presentation">home</i>หน้าหลัก</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-900" href="patient.html"><i class="mdl-color-text--grey-900 material-icons" role="presentation">folder_shared</i>ผู้ป่วยเยี่ยมบ้าน</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-900" href="calendar.html"><i class="mdl-color-text--grey-900 material-icons" role="presentation">date_range</i>นัดหมาย</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-900" href="summary.html"><i class="mdl-color-text--grey-900 material-icons" role="presentation">assignment</i>สรุปเยี่ยมบ้าน</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="index.html">
+                    <i class="material-icons mdl-color-text--grey-900" role="presentation">home</i> หน้าหลัก
+                </a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="patient.html">
+                    <i class="material-icons mdl-color-text--grey-900">folder_shared</i> ผู้ป่วยเยี่ยมบ้าน
+                </a>
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="calendar.html">
+                    <i class="material-icons mdl-color-text--grey-900">date_range</i> นัดหมาย
+                </a>
+                <a class="mdl-navigation__link mdl-color-text--green" href="summary.html">
+                    <i class="material-icons mdl-color-text--green">assignment</i> สรุปเยี่ยมบ้าน
+                </a>
                 <div class="mdl-layout-spacer"></div>
-                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
             </nav>
         </div>
-        <main class="mdl-layout__content mdl-color--grey-100">
-
+        <main class="mdl-layout__content mdl-color--grey-100 ">
             <div class="mdl-grid demo-content">
-
                 <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--112-col-desktop">
 
                     <div class="mdl-card__menu">
-                        <a href="patient_add.html"><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect mdl-color-text--green">
-                            <i class="material-icons">add</i>
-                        </button></a>
+                        <a href="patient_add.html">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect mdl-color-text--green">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </a>
                     </div>
-                    
-                    <div class="mdl-card__supporting-text mdl-color-text--grey-600 mdl-cell mdl-cell--12-col">
+                    <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col mdl-color-text--black">
                         <h5><i class="mdl-color-text--grey-600 material-icons">folder_shared</i> ผู้ป่วยในความดูแล</h5>
                         <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                             <div class="mdl-tabs__tab-bar">
@@ -223,7 +226,6 @@
                     <div class="mdl-card__actions mdl-card--border">
                         <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--green">ดูผู้ป่วยทั้งหมด</a>
                     </div>
-                    
                 </div>
                 <!--/.mdl-card-->
 
@@ -239,93 +241,53 @@
                         <div class="mdl-card__actions mdl-card--border">
                             <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--green">View More</a>
                         </div>
-                        <div class="mdl-card__menu">
-                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect mdl-color-text--green">
-                                <i class="material-icons">add</i>
-                            </button>
-                        </div>
+                       
                     </div>
                     <!--/.mdl-card-->
 
-                    <div class="demo-separator mdl-cell--1-col"></div>
-
-                    <div class="demo-options mdl-card mdl-color--green mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-                        <div class="mdl-card__supporting-text mdl-color-text--white">
-                            <h3>View options</h3>
-                            <ul>
-                                <li>
-                                    <label for="chkbox1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                                        <input type="checkbox" id="chkbox1" class="mdl-checkbox__input">
-                                        <span class="mdl-checkbox__label">Click per object</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label for="chkbox2" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                                        <input type="checkbox" id="chkbox2" class="mdl-checkbox__input">
-                                        <span class="mdl-checkbox__label">Views per object</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label for="chkbox3" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                                        <input type="checkbox" id="chkbox3" class="mdl-checkbox__input">
-                                        <span class="mdl-checkbox__label">Objects selected</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label for="chkbox4" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                                        <input type="checkbox" id="chkbox4" class="mdl-checkbox__input">
-                                        <span class="mdl-checkbox__label">Objects viewed</span>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-50">Change location</a>
-                            <div class="mdl-layout-spacer"></div>
-                            <i class="material-icons">location_on</i>
-                        </div>
-
-                    </div>
-                    <!--/.demo-options-->
                 </div>
                 <!--/.calendar-->
 
-                <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
+                <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet mdl-cell--8-col-desktop">
 
-                    <h5><i class="material-icons">assignment</i> สรุปเยี่ยมบ้าน</h5>
+                    <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col mdl-color-text--black">
+                        <h5><i class="material-icons">assignment</i> สรุปเยี่ยมบ้าน</h5>
 
-                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-cell--12-col">
-                        <thead>
-                            <tr>
-                                <th>HN</th>
-                                <th class="mdl-data-table__cell--non-numeric">ชื่อ-นามสกุล</th>
-                                <th class="mdl-data-table__header--sorted-descending">วันที่เยี่ยม</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>7469584</td>
-                                <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง มะลิ บำรุงมิตร</a></td>
-                                <td>15/8/2559</td>
-                            </tr>
-                            <tr>
-                                <td>7567245</td>
-                                <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย ขจร ชัยโชค</a></td>
-                                <td>14/8/2559</td>
-                            </tr>
-                            <tr>
-                                <td>6981258</td>
-                                <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง กันยา สุปราณี</a></td>
-                                <td>10/8/2559</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                        <table class="mdl-data-table mdl-js-data-table mdl-cell--12-col">
+                            <thead>
+                                <tr>
+                                    <th>HN</th>
+                                    <th class="mdl-data-table__cell--non-numeric">ชื่อ-นามสกุล</th>
+                                    <th class="mdl-data-table__header--sorted-descending">วันที่เยี่ยม</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>7469584</td>
+                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง มะลิ บำรุงมิตร</a></td>
+                                    <td>15/8/2559</td>
+                                </tr>
+                                <tr>
+                                    <td>7567245</td>
+                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย ขจร ชัยโชค</a></td>
+                                    <td>14/8/2559</td>
+                                </tr>
+                                <tr>
+                                    <td>6981258</td>
+                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง กันยา สุปราณี</a></td>
+                                    <td>10/8/2559</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--green">ดูผู้ป่วยทั้งหมด</a>
+                    </div>
                 </div>
-                <!--/.summary-->
             </div>
         </main>
     </div>
-    <script src="lib/mdl/material.min.js"></script>
 </body>
 
 </html>
