@@ -12,9 +12,10 @@
     <!--mdl-->
     <link rel="stylesheet" href="lib/mdl/material.min.css">
     <link rel="stylesheet" href="lib/mdl-template-dashboard/styles.css">
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="lib/mdl/material.min.js"></script>
-    
+
+    <!--uikit-->
+    <link rel="stylesheet" href="lib/uikit/css/uikit.min.css">
+
     <!--icon-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -28,8 +29,8 @@
         <header class="demo-header mdl-layout__header mdl-color--primary mdl-color-text--white">
             <div class="mdl-layout__header-row">
                 <img src="img/logo-rama.png" width="50px" style="margin-right: 20px;">
-                <div class="mdl-layout-title">
-                    <h6 class="mdl-typography--title">
+                <div class="mdl-layout-title" style="margin-top: 20px;">
+                    <h6 class="mdl-typography--title mdl-color-text--white">
                         ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน
                         <p>ภาควิชาเวชศาสตร์ครอบครัว คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี มหาวิทยาลัยมหิดล</p>
                     </h6>
@@ -69,12 +70,11 @@
         </div>
         <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
-                <!--
-                <ul class="breadcrumb">
-                    <li><a href="#">ผู้ป่วยเยี่ยมบ้าน</a></li>
-                    <li>ค้นหาผู้ป่วย</li>
+
+                <ul class="uk-breadcrumb">
+                    <li><span href=""></span>ผู้ป่วยเยี่ยมบ้าน</li>
                 </ul>
-                -->
+
                 <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--112-col-desktop">
                     <div class="mdl-card__menu"></div>
                     <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col">
@@ -97,148 +97,247 @@
 
                 <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell--12-col mdl-cell mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
                     <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col">
-                        <h1 class="mdl-typography--title">ผู้ป่วยเยี่ยมบ้านในความดูแล (ทั้งหมด)</h1>
-                        <!--table-->
-                        <table class="mdl-data-table mdl-js-data-table selectable mdl-cell--12-col">
-                            <thead>
-                                <tr>
-                                    <th class="mdl-data-table__header--sorted-ascending">HN</th>
-                                    <th class="mdl-data-table__cell--non-numeric">ชื่อ-นามสกุล</th>
-                                    <th>สถานะ</th>
-                                    <th>เยี่ยมแล้ว (ครั้ง)</th>
-                                    <th>เยี่ยมครั้งสุดท้าย</th>
-                                    <th>เยี่ยมครั้งต่อไป</th>
-                                    <th>แก้ไข</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!--new-->
-                                <tr>
-                                    <td>5987452</td>
-                                    <td class="mdl-data-table__cell--non-numeric"><a href="patient_5987452.html">นาง มาลิณี เกียรติขจร</a></td>
-                                    <td>ใหม่ <small class="mdl-color-text--">(50%)</small></td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>25/5/2559</td>
-                                    <td><a href="patient_edit_5987452.html"><i class="material-icons">edit</i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>6215845</td>
-                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย รุ่งโรจน์ เรืองรอง</a></td>
-                                    <td>ใหม่</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>25/5/2559</td>
-                                    <td><i class="material-icons">edit</i></td>
-                                </tr>
-                                <tr>
-                                    <td>8963215</td>
-                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย วิบูรณ์ ธนโชติไพศาล</a></td>
-                                    <td>ใหม่</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>25/5/2559</td>
-                                    <td><i class="material-icons">edit</i></td>
-                                </tr>
-                                <!--visit-->
-                                <tr>
-                                    <td>4987521</td>
-                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง เพียรจิต จงใจรักษ์</a></td>
-                                    <td>เยี่ยมต่อ</td>
-                                    <td>5</td>
-                                    <td>25/5/2559</td>
-                                    <td>25/8/2560</td>
-                                    <td><i class="material-icons">edit</i></td>
-                                </tr>
-                                <tr>
-                                    <td>5874158</td>
-                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย เหมันต์ ธนไพบูรณ์</a></td>
-                                    <td>เยี่ยมต่อ</td>
-                                    <td>6</td>
-                                    <td>25/5/2559</td>
-                                    <td>25/8/2560</td>
-                                    <td><i class="material-icons">edit</i></td>
-                                </tr>
-                                <tr>
-                                    <td>5965485</td>
-                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง รุ่งทิพย์ ก่อเกียรติ</a></td>
-                                    <td>เยี่ยมต่อ</td>
-                                    <td>3</td>
-                                    <td>20/5/2559</td>
-                                    <td>20/7/2560</td>
-                                    <td><i class="material-icons">edit</i></td>
-                                </tr>
-                                <tr>
-                                    <td>6158489</td>
-                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง ชญานิศ พลฑา</a></td>
-                                    <td>เยี่ยมต่อ</td>
-                                    <td>7</td>
-                                    <td>12/5/2559</td>
-                                    <td>12/7/2560</td>
-                                    <td><i class="material-icons">edit</i></td>
-                                </tr>
-                                <tr>
-                                    <td>6258459</td>
-                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย ชัชพิสิทธิ์ กาวิโล</a></td>
-                                    <td>เยี่ยมต่อ</td>
-                                    <td>8</td>
-                                    <td>12/6/2559</td>
-                                    <td>15/7/2559</td>
-                                    <td><i class="material-icons">edit</i></td>
-                                </tr>
-                                <tr>
-                                    <td>7854485</td>
-                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง วิยดา เครื่องดี</a></td>
-                                    <td>เยี่ยมต่อ</td>
-                                    <td>6</td>
-                                    <td>5/6/2559</td>
-                                    <td>5/8/2560</td>
-                                    <td><i class="material-icons">edit</i></td>
-                                </tr>
-                                <tr>
-                                    <td>8512365</td>
-                                    <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย ธนโชติ  มหาทรัพย์</a></td>
-                                    <td>เยี่ยมต่อ</td>
-                                    <td>9</td>
-                                    <td>11/5/2559</td>
-                                    <td>11/8/2560</td>
-                                    <td><i class="material-icons">edit</i></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <div class="mdl-grid">
-                            <span class="margin-right-10">แสดง</span>
-                            <select>
-                                <option>10</option>
-                                <option>20</option>
-                                <option>30</option>
-                                <option>40</option>
-                                <option>50</option>
-                            </select>
-                            <span class="margin-left-10">รายชื่อต่อหน้า</span>
-
-                            <div class="mdl-layout-spacer"></div>
-
-                            <button disabled class="mdl-button mdl-js-button mdl-button--icon">
-                                <i class="material-icons">navigate_before</i>
-                            </button>
-
-                            <span class="margin-left-10 margin-right-10">1-10 จาก 12 รายชื่อ</span>
-
-                            <a href="patient_2.html">
-                                <button class="mdl-button mdl-js-button mdl-button--icon">
-                                    <i class="material-icons">navigate_next</i>
-                                </button>
-                            </a>
+                        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                            <div class="mdl-tabs__tab-bar">
+                                <a href="#visiting-panel" class="mdl-tabs__tab is-active">เยี่ยมต่อ</a>
+                                <a href="#closed-panel" class="mdl-tabs__tab">ปิดเยี่ยมบ้าน</a>
+                            </div>
+                            <!--/.mdl-tabs__tab-bar-->
+                            <div class="mdl-tabs__panel is-active" id="visiting-panel">
+                                <h5 class="uk-margin-top">ผู้ป่วยเยี่ยมบ้านต่อ</h5>
+                                <table class="mdl-data-table mdl-js-data-table selectable mdl-cell--12-col">
+                                    <thead>
+                                        <tr>
+                                            <th class="mdl-data-table__header--sorted-ascending">HN</th>
+                                            <th class="mdl-data-table__cell--non-numeric">ชื่อ-นามสกุล</th>
+                                            <th>สถานะ</th>
+                                            <th>เยี่ยมแล้ว (ครั้ง)</th>
+                                            <th>เยี่ยมครั้งสุดท้าย</th>
+                                            <th>เยี่ยมครั้งต่อไป</th>
+                                            <th>แก้ไข</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>5987452</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="patient_5987452.html">นาง มาลิณี เกียรติขจร</a></td>
+                                            <td>ใหม่ <small class="mdl-color-text--">(50%)</small></td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>25/5/2559</td>
+                                            <td><a href="patient_edit_5987452.html"><i class="material-icons">edit</i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6215845</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย รุ่งโรจน์ เรืองรอง</a></td>
+                                            <td>ใหม่</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>25/5/2559</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8963215</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย วิบูรณ์ ธนโชติไพศาล</a></td>
+                                            <td>ใหม่</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>25/5/2559</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <!--visit-->
+                                        <tr>
+                                            <td>4987521</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง เพียรจิต จงใจรักษ์</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>5</td>
+                                            <td>25/5/2559</td>
+                                            <td>25/8/2560</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5874158</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย เหมันต์ ธนไพบูรณ์</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>6</td>
+                                            <td>25/5/2559</td>
+                                            <td>25/8/2560</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5965485</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง รุ่งทิพย์ ก่อเกียรติ</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>3</td>
+                                            <td>20/5/2559</td>
+                                            <td>20/7/2560</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6158489</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง ชญานิศ พลฑา</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>7</td>
+                                            <td>12/5/2559</td>
+                                            <td>12/7/2560</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6258459</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย ชัชพิสิทธิ์ กาวิโล</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>8</td>
+                                            <td>12/6/2559</td>
+                                            <td>15/7/2559</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7854485</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง วิยดา เครื่องดี</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>6</td>
+                                            <td>5/6/2559</td>
+                                            <td>5/8/2560</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8512365</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย ธนโชติ  มหาทรัพย์</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>9</td>
+                                            <td>11/5/2559</td>
+                                            <td>11/8/2560</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--/#visiting-panel-->
+                            <div class="mdl-tabs__panel" id="closed-panel">
+                                <h5 class="uk-margin-top">ผู้ป่วยปิดเยี่ยมบ้าน</h5>
+                                <table class="mdl-data-table mdl-js-data-table selectable mdl-cell--12-col">
+                                    <thead>
+                                        <tr>
+                                            <th class="mdl-data-table__header--sorted-ascending">HN</th>
+                                            <th class="mdl-data-table__cell--non-numeric">ชื่อ-นามสกุล</th>
+                                            <th>สถานะ</th>
+                                            <th>เยี่ยมแล้ว (ครั้ง)</th>
+                                            <th>เยี่ยมครั้งสุดท้าย</th>
+                                            <th>เยี่ยมครั้งต่อไป</th>
+                                            <th>แก้ไข</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>5987452</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="patient_5987452.html">นาง มาลิณี เกียรติขจร</a></td>
+                                            <td>ใหม่ <small class="mdl-color-text--">(50%)</small></td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>25/5/2559</td>
+                                            <td><a href="patient_edit_5987452.html"><i class="material-icons">edit</i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6215845</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย รุ่งโรจน์ เรืองรอง</a></td>
+                                            <td>ใหม่</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>25/5/2559</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8963215</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย วิบูรณ์ ธนโชติไพศาล</a></td>
+                                            <td>ใหม่</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>25/5/2559</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <!--visit-->
+                                        <tr>
+                                            <td>4987521</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง เพียรจิต จงใจรักษ์</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>5</td>
+                                            <td>25/5/2559</td>
+                                            <td>25/8/2560</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5874158</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย เหมันต์ ธนไพบูรณ์</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>6</td>
+                                            <td>25/5/2559</td>
+                                            <td>25/8/2560</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5965485</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง รุ่งทิพย์ ก่อเกียรติ</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>3</td>
+                                            <td>20/5/2559</td>
+                                            <td>20/7/2560</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6158489</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง ชญานิศ พลฑา</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>7</td>
+                                            <td>12/5/2559</td>
+                                            <td>12/7/2560</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6258459</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย ชัชพิสิทธิ์ กาวิโล</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>8</td>
+                                            <td>12/6/2559</td>
+                                            <td>15/7/2559</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7854485</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาง วิยดา เครื่องดี</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>6</td>
+                                            <td>5/6/2559</td>
+                                            <td>5/8/2560</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8512365</td>
+                                            <td class="mdl-data-table__cell--non-numeric"><a href="#">นาย ธนโชติ  มหาทรัพย์</a></td>
+                                            <td>เยี่ยมต่อ</td>
+                                            <td>9</td>
+                                            <td>11/5/2559</td>
+                                            <td>11/8/2560</td>
+                                            <td><i class="material-icons">edit</i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--/#closed-panel-->
                         </div>
+                        <!--/.tabs-->
                     </div>
                 </div>
                 <!--/.mdl-card-->
             </div>
         </main>
     </div>
+
+    <!--jquery-->
+    <script src="js/jquery-3.1.1.min.js"></script>
+
+    <!--js-->
+    <script src="lib/mdl/material.min.js"></script>
+    <script src="lib/uikit/js/uikit.min.js"></script>
 </body>
 
 </html>

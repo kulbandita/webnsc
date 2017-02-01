@@ -17,19 +17,17 @@ a:hover {
 }
 
 a:hover.mdl-navigation__link {
-/*  background-color: rgb(226, 226, 226) !important;  */
+    /*  background-color: rgb(226, 226, 226) !important;  */
     background-color: #C8E6C9 !important;
     transition: 0.5s;
 }
 
-
-
 tr {
-   /*font-size: 120%;*/
+    /*font-size: 120%;*/
 }
 
 th {
-    font-size: 100% !important; 
+    font-size: 100% !important;
 }
 
 .margin-left-10 {
@@ -55,7 +53,7 @@ th {
 }
 
 .dl-horizontal dd {
-  margin: 10px;
+    margin: 10px;
     margin-left: 25%;
 }
 
@@ -74,11 +72,13 @@ dialog {
     padding-top: 150px;
 }
 
+
 /* --------------- MDL --------------- */
 
 .demo-content {
     padding-top: 20px;
 }
+
 
 /* --------------- stepper --------------- */
 
@@ -91,6 +91,7 @@ ul.mdl-stepper.mdl-stepper--horizontal {
     height: auto !important;
 }
 
+
 /* --------------- UIKit --------------- */
 
 .uk-text-small {
@@ -102,6 +103,7 @@ ul.mdl-stepper.mdl-stepper--horizontal {
     background-color: #4caf50;
 }
 
+
 /*
 .uk-button.uk-button-primary.uk-button-green {
     background-color: #4caf50;
@@ -111,5 +113,14 @@ ul.mdl-stepper.mdl-stepper--horizontal {
 .uk-text-green {
     color: #4caf50;
 }
+
+.uk-breadcrumb {
+    padding: 5px 15px;
+    list-style: none;
+    background-color: #eee;
+    width: 100%;
+    border-radius: 5px;
+}
+
 
 /**/

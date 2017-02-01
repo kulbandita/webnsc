@@ -12,8 +12,9 @@
     <!--mdl-->
     <link rel="stylesheet" href="lib/mdl/material.min.css">
     <link rel="stylesheet" href="lib/mdl-template-dashboard/styles.css">
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="lib/mdl/material.min.js"></script>
+
+    <!--uikit-->
+    <link rel="stylesheet" href="lib/uikit/css/uikit.min.css">
 
     <!--icon-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -28,13 +29,12 @@
         <header class="demo-header mdl-layout__header mdl-color--primary mdl-color-text--white">
             <div class="mdl-layout__header-row">
                 <img src="img/logo-rama.png" width="50px" style="margin-right: 20px;">
-                <div class="mdl-layout-title">
-                    <h6 class="mdl-typography--title">
+                <div class="mdl-layout-title" style="margin-top: 20px;">
+                    <h6 class="mdl-typography--title mdl-color-text--white">
                         ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน
                         <p>ภาควิชาเวชศาสตร์ครอบครัว คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี มหาวิทยาลัยมหิดล</p>
                     </h6>
                 </div>
-                <div class="mdl-layout-spacer"></div>
             </div>
         </header>
         <div class="demo-drawer mdl-layout__drawer mdl-color--green">
@@ -70,16 +70,21 @@
         </div>
         <main class="mdl-layout__content mdl-color--grey-100 ">
             <div class="mdl-grid demo-content">
+
+                <ul class="uk-breadcrumb">
+                    <li><span href=""></span>หน้าหลัก</li>
+                </ul>
+
                 <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
                     <div class="mdl-card__menu">
-                        <a href="patient_add.html">
+                        <a href="patient_form_checkHN.html">
                             <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect mdl-color-text--green">
                                 <i class="material-icons">add</i>
                             </button>
                         </a>
                     </div>
                     <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col mdl-color-text--black">
-                        <h5><i class="mdl-color-text--grey-600 material-icons">folder_shared</i> ผู้ป่วยในความดูแล</h5>
+                        <h5>ผู้ป่วยเยี่ยมบ้านในความดูแล</h5>
 
                         <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                             <div class="mdl-tabs__tab-bar">
@@ -88,7 +93,7 @@
                             </div>
                             <!--/.mdl-tabs__tab-bar-->
                             <div class="mdl-tabs__panel is-active" id="visiting-panel">
-                                <h6>ผู้ป่วยปัจจุบันใน 3 เดือนที่ผ่านมา</h6>
+                                <h5 class="uk-margin-top">ผู้ป่วยปัจจุบันใน 3 เดือนที่ผ่านมา</h5>
                                 <table class="mdl-data-table mdl-js-data-table mdl-cell mdl-cell--12-col">
                                     <thead>
                                         <tr>
@@ -171,7 +176,7 @@
                             </div>
                             <!--/#visiting-panel-->
                             <div class="mdl-tabs__panel" id="closed-panel">
-                                <h6>ผู้ป่วยที่ปิดเคสใน 3 เดือนที่ผ่านมา</h6>
+                                <h5 class="uk-margin-top">ผู้ป่วยที่ปิดเคสใน 3 เดือนที่ผ่านมา</h5>
                                 <table class="mdl-data-table mdl-js-data-table mdl-cell--12-col">
                                     <thead>
                                         <tr>
@@ -225,23 +230,17 @@
                 </div>
 
                 <!--calendar-->
-                <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
-                    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-                        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                            <h5><i class="material-icons">date_range</i> นัดหมาย</h5>
+                <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
+                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                        <h5>นัดหมายสัปดาห์นี้</h5>
 
-                            <p>Non dolore elit adipisicing ea reprehenderit consectetur culpa.</p>
-
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--green">View More</a>
-                        </div>
                     </div>
                 </div>
+
                 <!--summary-->
                 <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet mdl-cell--8-col-desktop">
                     <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col mdl-color-text--black">
-                        <h5><i class="material-icons">assignment</i> สรุปเยี่ยมบ้าน</h5>
+                        <h5>สรุปเยี่ยมบ้าน</h5>
                         <table class="mdl-data-table mdl-js-data-table mdl-cell--12-col">
                             <thead>
                                 <tr>
@@ -270,12 +269,19 @@
                         </table>
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
-                        <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--green">ดูผู้ป่วยทั้งหมด</a>
+                        <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--green">ดูสรุปทั้งหมด</a>
                     </div>
                 </div>
             </div>
         </main>
     </div>
+
+    <!--jquery-->
+    <script src="js/jquery-3.1.1.min.js"></script>
+
+    <!--js-->
+    <script src="lib/mdl/material.min.js"></script>
+    <script src="lib/uikit/js/uikit.min.js"></script>
 </body>
 
 </html>
