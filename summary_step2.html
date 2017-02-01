@@ -73,6 +73,7 @@
         </div>
         <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
+                
                 <ul class="uk-breadcrumb">
                     <li><a href="summary.html">สรุปเยี่ยมบ้าน</a></li>
                     <li><span href=""></span>เพิ่มสรุปเยี่ยมบ้าน</li>
@@ -82,7 +83,7 @@
                 <ul class="mdl-stepper mdl-stepper--horizontal" id="demo-stepper-nonlinear" style="height: 2050px;">
 
                     <!--step1-->
-                    <li class="mdl-step">
+                    <li class="mdl-step" onclick="openSumStep(1)">
                         <span class="mdl-step__label">
                             <span class="mdl-step__title"><span class="mdl-step__title-text">ข้อมูลทั่วไป</span></span>
                         </span>
@@ -96,7 +97,9 @@
                             </button>
                         </div>
                     </li>
-                    <li class="mdl-step is-active">
+                    
+                    <!--step2-->
+                    <li class="mdl-step is-active" onclick="openSumStep(2)">
                         <span class="mdl-step__label">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">รายละเอียดปัญหา</span>
@@ -354,8 +357,9 @@
                             </button>
                         </div>
                     </li>
+                    
                     <!--step3-->
-                    <li class="mdl-step">
+                    <li class="mdl-step" onclick="openSumStep(3)">
                         <span class="mdl-step__label">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">สรุปข้อมูลปัญหา</span>
@@ -374,8 +378,9 @@
                             </button>
                         </div>
                     </li>
+                    
                     <!--step4-->
-                    <li class="mdl-step">
+                    <li class="mdl-step" onclick="openSumStep(4)">
                         <span class="mdl-step__label">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">สรุปหลังประชุม</span>
@@ -412,6 +417,9 @@
     <!--js stepper-->
     <script src="lib/mdl-stepper/stepper.min.js"></script>
     <script src="js/stepper-nonlinear.js"></script>
+    
+    <!--custom js-->
+    <script src="js/openwindow.js"></script>
 </body>
 
 </html>

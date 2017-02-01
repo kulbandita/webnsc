@@ -81,9 +81,8 @@
 
                 <!--stepper-nonlinear-->
                 <ul class="mdl-stepper mdl-stepper--horizontal" id="demo-stepper-nonlinear">
-
                     <!--step1-->
-                    <li class="mdl-step">
+                    <li class="mdl-step" onclick="openSumStep(1)">
                         <span class="mdl-step__label">
                             <span class="mdl-step__title"><span class="mdl-step__title-text">ข้อมูลทั่วไป</span></span>
                         </span>
@@ -98,7 +97,7 @@
                         </div>
                     </li>
                     <!--step2-->
-                    <li class="mdl-step">
+                    <li class="mdl-step" onclick="openSumStep(2)">
                         <span class="mdl-step__label">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">รายละเอียดปัญหา</span>
@@ -118,7 +117,7 @@
                         </div>
                     </li>
                     <!--step3-->
-                    <li class="mdl-step is-active">
+                    <li class="mdl-step is-active" onclick="openSumStep(3)">
                         <span class="mdl-step__label">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">สรุปข้อมูลปัญหา</span>
@@ -139,18 +138,6 @@
                                             <option>3 เดือน</option>
                                         </select>
                                     </div>
-
-                                    <!--
-                                        <input list="problem-main" class="uk-search" placeholder="ค้นหาจากรหัส / ชื่อ-นามสกุล">
-                                        <datalist id="problem-main">
-                                            <option value="นพ.ประสงค์ ทรงธรรม" /> 012568
-                                            <option value="นพ.นพดล ชลธาร" /> 013654
-                                            <option value="นพ.คชสร อมรรัตน์" /> 016325
-                                            <option value="พญ.รัตนา พานิชญ์" /> 014251
-                                            <option value="นญ.วิภาวรรณ ใจสุทธิ์" /> 013212
-                                            <option value="นพ.ชลธร รุ่งเจริญ" /> 013625
-                                        </datalist>-->
-
                                 </div>
                                 <hr>
                                 <div class="uk-margin">
@@ -186,7 +173,7 @@
                         </div>
                     </li>
                     <!--step4-->
-                    <li class="mdl-step">
+                    <li class="mdl-step" onclick="openSumStep(4)">
                         <span class="mdl-step__label">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">สรุปหลังประชุม</span>
@@ -223,6 +210,9 @@
     <!--js stepper-->
     <script src="lib/mdl-stepper/stepper.min.js"></script>
     <script src="js/stepper-nonlinear.js"></script>
+    
+    <!--custom js-->
+    <script src="js/openwindow.js"></script>
 </body>
 
 </html>

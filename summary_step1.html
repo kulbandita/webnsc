@@ -73,14 +73,7 @@
         </div>
         <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
-
-                <!--
-                <ul class="breadcrumb">
-                    <li><a href="#">สรุปเยี่ยมบ้าน</a></li>
-                    <li>เพิ่มสรุปเยี่ยมบ้าน</li>
-                </ul>
-                -->
-
+                
                 <ul class="uk-breadcrumb">
                     <li><a href="summary.html">สรุปเยี่ยมบ้าน</a></li>
                     <li><span href=""></span>เพิ่มสรุปเยี่ยมบ้าน</li>
@@ -90,7 +83,7 @@
                 <ul class="mdl-stepper mdl-stepper--horizontal" id="demo-stepper-nonlinear" style="height: 2200px;">
 
                     <!--step1-->
-                    <li class="mdl-step">
+                    <li class="mdl-step" onclick="openSumStep(1)">
                         <span class="mdl-step__label">
                             <span class="mdl-step__title"><span class="mdl-step__title-text">ข้อมูลทั่วไป</span></span>
                         </span>
@@ -144,13 +137,14 @@
                                                     <option>3 เดือน</option>
                                                 </select>
                                             </div>
-
                                             <div>
                                                 <label class="margin-right-20 uk-text-bold">ลักษณะ</label>
                                                 <label class="margin-right-20">
-                                                    <input class="uk-radio" type="radio" name="unit" checked> ยาเม็ด</label>
+                                                    <input class="uk-radio" type="radio" name="unit" checked> ยาเม็ด
+                                                </label>
                                                 <label class="margin-right-20">
-                                                    <input class="uk-radio" type="radio" name="unit"> ยาน้ำ</label>
+                                                    <input class="uk-radio" type="radio" name="unit"> ยาน้ำ
+                                                </label>
                                             </div>
                                             <div>
                                                 <label class="margin-right-20 uk-text-bold">โดส</label>
@@ -562,8 +556,9 @@
                             </button>
                         </div>
                     </li>
+                    
                     <!--step2-->
-                    <li class="mdl-step">
+                    <li class="mdl-step" onclick="openSumStep(2)">
                         <span class="mdl-step__label">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">รายละเอียดปัญหา</span>
@@ -584,8 +579,9 @@
                             </button>
                         </div>
                     </li>
+                    
                     <!--step3-->
-                    <li class="mdl-step">
+                    <li class="mdl-step" onclick="openSumStep(3)">
                         <span class="mdl-step__label">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">สรุปข้อมูลปัญหา</span>
@@ -604,8 +600,9 @@
                             </button>
                         </div>
                     </li>
+                    
                     <!--step4-->
-                    <li class="mdl-step">
+                    <li class="mdl-step" onclick="openSumStep(4)">
                         <span class="mdl-step__label">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">สรุปหลังประชุม</span>
@@ -641,6 +638,9 @@
     
     <!--js stepper-->
     <script src="lib/mdl-stepper/stepper.min.js"></script>
+    <script src="js/stepper-nonlinear.js"></script>
+    
+    <!--custom js-->
     <script src="js/stepper-nonlinear.js"></script>
 </body>
 

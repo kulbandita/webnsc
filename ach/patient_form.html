@@ -40,20 +40,19 @@
                 </div>
             </div>
         </header>
-        <div class="demo-drawer mdl-layout__drawer mdl-color--green">
-            <header class="demo-drawer-header">
+        <div class="demo-drawer mdl-layout__drawer">
+            <header class="demo-drawer-header mdl-color--primary">
                 <img src="img/user.jpg" class="demo-avatar">
                 <div class="demo-avatar-dropdown">
-                    <span class="mdl-color-text--white">
-                        นพ.ประสงค์ ทรงธรรม<br>
-                        <small>แพทย์ประจำบ้าน</small>
-                    </span>
+                    <span class="mdl-color-text--white">นพ.ประสงค์ ทรงธรรม</span>
                     <div class="mdl-layout-spacer"></div>
                     <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                        <i class="material-icons mdl-color-text--white">arrow_drop_down</i>
+                        <i class="material-icons" role="presentation">arrow_drop_down</i>
+                        <span class="visuallyhidden">Accounts</span>
                     </button>
                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-                        <li class="mdl-menu__item">แก้ไขข้อมูลส่วนตัว</li>
+                        <li class="mdl-menu__item">ดูข้อมูลส่วนตัว</li>
+                        <li class="mdl-menu__item">แก้ไขรหัสผ่าน</li>
                         <li class="mdl-menu__item"><i class="material-icons">exit_to_app</i> ออกจากระบบ</li>
                     </ul>
                 </div>
@@ -65,30 +64,33 @@
                 <a class="mdl-navigation__link mdl-color-text--grey-900" href="patient.html">
                     <i class="material-icons mdl-color-text--grey-900">folder_shared</i> ผู้ป่วยเยี่ยมบ้าน
                 </a>
-                <a class="mdl-navigation__link mdl-color-text--grey-900" href="summary.html">
-                    <i class="material-icons mdl-color-text--grey-900">assignment</i> สรุปเยี่ยมบ้าน
+                <a class="mdl-navigation__link mdl-color-text--grey-900" href="calendar.html">
+                    <i class="material-icons mdl-color-text--grey-900">date_range</i> นัดหมาย
+                </a>
+                <a class="mdl-navigation__link mdl-color-text--green" href="summary.html">
+                    <i class="material-icons mdl-color-text--green">assignment</i> สรุปเยี่ยมบ้าน
                 </a>
                 <div class="mdl-layout-spacer"></div>
             </nav>
         </div>
+
         <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
 
                 <ul class="uk-breadcrumb">
-                    <li><a href="summary.html">สรุปเยี่ยมบ้าน</a></li>
-                    <li><span href=""></span>เพิ่มสรุปเยี่ยมบ้าน</li>
+                    <li><a href="summary.html">ผู้ป่วยเยี่ยมบ้าน</a></li>
+                    <li><span href=""></span>เพิ่มผู้ป่วยเยี่ยมบ้าน</li>
                 </ul>
 
                 <!--stepper-nonlinear-->
                 <ul class="mdl-stepper mdl-stepper--horizontal" id="demo-stepper-nonlinear">
-
                     <!--step1-->
                     <li class="mdl-step">
                         <span class="mdl-step__label">
                             <span class="mdl-step__title"><span class="mdl-step__title-text">ข้อมูลทั่วไป</span></span>
                         </span>
-                        <div class="mdl-step__content">
-                            
+                        <div class="mdl-step__content ">
+
                         </div>
                         <div class="mdl-step__actions">
                             <div class="mdl-layout-spacer"></div>
@@ -96,35 +98,16 @@
                                 ถัดไป
                             </button>
                         </div>
-                    </li><!--step2-->
+                    </li>
+                    <!--step2-->
                     <li class="mdl-step">
                         <span class="mdl-step__label">
           <span class="mdl-step__title">
-            <span class="mdl-step__title-text">รายละเอียดปัญหา</span>
+            <span class="mdl-step__title-text">ข้อมูลสุขภาพ</span>
                         </span>
                         </span>
                         <div class="mdl-step__content">
 
-                            
-                        </div>
-                        <div class="mdl-step__actions">
-                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
-                                ย้อนกลับ
-                            </button>
-                            <div class="mdl-layout-spacer"></div>
-                            <button class="mdl-button mdl-js-button mdl-button--primary">
-                                ถัดไป
-                            </button>
-                        </div>
-                    </li><!--step3-->
-                    <li class="mdl-step">
-                        <span class="mdl-step__label">
-          <span class="mdl-step__title">
-            <span class="mdl-step__title-text">สรุปข้อมูลปัญหา</span>
-                        </span>
-                        </span>
-                        <div class="mdl-step__content">
-                            
                         </div>
                         <div class="mdl-step__actions">
                             <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
@@ -136,11 +119,11 @@
                             </button>
                         </div>
                     </li>
-                    <!--step4-->
-                    <li class="mdl-step is-active">
+                    <!--step3-->
+                    <li class="mdl-step">
                         <span class="mdl-step__label">
           <span class="mdl-step__title">
-            <span class="mdl-step__title-text">สรุปหลังประชุม</span>
+            <span class="mdl-step__title-text">สรุปปัญหา</span>
                         </span>
                         </span>
                         <div class="mdl-step__content">
@@ -189,7 +172,6 @@
                             </form>
                         </div>
                         <div class="mdl-step__actions">
-
                             <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
                                 ย้อนกลับ
                             </button>
@@ -205,14 +187,14 @@
             <!--/.demo-content-->
         </main>
     </div>
-    
+
     <!--jquery-->
     <script src="js/jquery-3.1.1.min.js"></script>
-    
+
     <!--js-->
     <script src="lib/mdl/material.min.js"></script>
     <script src="lib/uikit/js/uikit.min.js"></script>
-   
+
     <!--js stepper-->
     <script src="lib/mdl-stepper/stepper.min.js"></script>
     <script src="js/stepper-nonlinear.js"></script>

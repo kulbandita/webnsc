@@ -97,9 +97,16 @@ ul.mdl-stepper.mdl-stepper--horizontal {
     font-size: 10px;
 }
 
+.uk-button-green {
+    color: #fff;
+    background-color: #4caf50;
+}
+
+/*
 .uk-button.uk-button-primary.uk-button-green {
     background-color: #4caf50;
 }
+*/
 
 .uk-text-green {
     color: #4caf50;
