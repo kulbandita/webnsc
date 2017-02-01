@@ -22,6 +22,8 @@ a:hover.mdl-navigation__link {
     transition: 0.5s;
 }
 
+
+
 tr {
    /*font-size: 120%;*/
 }
@@ -82,13 +84,11 @@ dialog {
 
 ul.mdl-stepper.mdl-stepper--horizontal {
     max-width: 100%;
-    height: 100% !important;
     margin-top: 0;
-    
 }
 
 .mdl-step__content {
-/*   min-height: 100%;*/
+    height: auto !important;
 }
 
 /* --------------- UIKit --------------- */
@@ -99,6 +99,10 @@ ul.mdl-stepper.mdl-stepper--horizontal {
 
 .uk-button.uk-button-primary.uk-button-green {
     background-color: #4caf50;
+}
+
+.uk-text-green {
+    color: #4caf50;
 }
 
 /**/
