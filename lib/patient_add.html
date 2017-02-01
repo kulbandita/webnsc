@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="lib/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 
     <!--mdl-->
-    <link rel="stylesheet" href="lib/mdl/material.min.css">
+    <link rel="stylesheet" href="lib/mdl-customize/material.min.css">
     <link rel="stylesheet" href="lib/mdl-template-dashboard/styles.css">
 
     <!--font-->
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/progress-tab.css">
     <link rel="stylesheet" href="css/breadcrumb.css">
-
+    
 </head>
 
 <body>
@@ -89,13 +89,12 @@
                 <div class="mdl-cell mdl-cell--12-col">
 
                     <ul class="breadcrumb">
-                        <li><a href="patient.html">ผู้ป่วยเยี่ยมบ้าน</a></li>
-                        <li><a href="patient_5987452.html">ข้อมูลผู้ป่วย HN 5987452</a></li>
-                        <li>แก้ไขข้อมูลผู้ป่วย HN 5987452</li>
-                    </ul>
+                    <li><a href="patient.html">ผู้ป่วยเยี่ยมบ้าน</a></li>
+                    <li>เพิ่มผู้ป่วยเยี่ยมบ้านใหม่</li>
+                </ul>
 
-                    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-                        <div class="mdl-card__supporting-text mdl-color-text--grey-900 mdl-cell mdl-cell--12-col">
+                    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--112-col-desktop">
+                        <div class="mdl-card__supporting-text mdl-color-text--black mdl-cell mdl-cell--12-col">
                             <div class="board mdl-typography--subhead">
                                 <div class="board-inner">
                                     <ul class="nav nav-tabs four-tabs" id="myTab">
@@ -130,10 +129,16 @@
 
                                         <div class="mdl-grid">
                                             <div class="mdl-cell--4-col">
-                                                เลขที่โรงพยาบาล
+                                                <div class="mdl-textfield">เลขที่โรงพยาบาล</div>
                                             </div>
                                             <div class="mdl-cell--8-col">
-                                                598745
+                                                <form action="#">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="hn">
+                                                        <label class="mdl-textfield__label" for="hn">เลขที่โรงพยาบาล</label>
+                                                        <span class="mdl-textfield__error">ข้อมูลนี้ไม่ใช่ตัวเลข</span>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
 
@@ -194,7 +199,7 @@
                                                 รหัสโรงพยาบาล
                                             </div>
                                             <div class="mdl-cell--8-col">
-                                                598745
+                                                9785356
                                             </div>
                                         </div>
 
@@ -224,7 +229,7 @@
                                                 <form action="#">
                                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                         <input class="mdl-textfield__input" type="text" pattern="[0-9]{13}" id="id-number">
-                                                        <label class="mdl-textfield__label" for="id-number">3 6442 33000 27 8</label>
+                                                        <label class="mdl-textfield__label" for="id-number">เลขบัตรประชาชน</label>
                                                         <span class="mdl-textfield__error">ตัวเลขไม่ครบ 13 หลัก</span>
                                                     </div>
                                                 </form>
@@ -238,7 +243,7 @@
                                             <div class="mdl-cell--8-col">
                                                 <form action="#">
                                                     <select>
-                                                        <option value="1">นาง</option>
+                                                        <option value="1">-- คำนำหน้า --</option>
                                                         <option value="1">นาย</option>
                                                         <option value="1">นาง</option>
                                                         <option value="1">นางสาว</option>
@@ -248,13 +253,13 @@
 
                                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                         <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="fname">
-                                                        <label class="mdl-textfield__label" for="fname">มาลิณี</label>
+                                                        <label class="mdl-textfield__label" for="fname">ชื่อ</label>
                                                         <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
                                                     </div>
 
                                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                         <input class="mdl-textfield__input" type="text" pattern="[^0-9]*" id="lname">
-                                                        <label class="mdl-textfield__label" for="lname">เกียรติขจร</label>
+                                                        <label class="mdl-textfield__label" for="lname">นามสกุล</label>
                                                         <span class="mdl-textfield__error">กรอกเพียงตัวอักษร</span>
                                                     </div>
                                                 </form>
@@ -269,12 +274,14 @@
                                                 <div class="mdl-grid">
                                                     <form action="#">
                                                         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="male">
-                                                            <input type="radio" id="male" class="mdl-radio__button" name="options" value="1">
+                                                            <input type="radio" id="male" class="mdl-radio__button" name="options" value="1" checked>
                                                             <span class="mdl-radio__label">ชาย</span>
                                                         </label>
 
+
+
                                                         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="female">
-                                                            <input type="radio" id="female" class="mdl-radio__button" name="options" value="2" checked>
+                                                            <input type="radio" id="female" class="mdl-radio__button" name="options" value="2">
                                                             <span class="mdl-radio__label">หญิง</span>
                                                         </label>
                                                     </form>
@@ -924,7 +931,7 @@
                                                             </label>
                                                         </form>
                                                     </div>
-
+                                                    
                                                     <h5 class="mdl-typography--subhead">ถ้าเคยดื่ม หรือ กำลังดื่มอยู่</h5>
 
                                                     <div class="mdl-cell--12-col">
