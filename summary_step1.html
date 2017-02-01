@@ -83,8 +83,8 @@
                 <ul class="mdl-stepper mdl-stepper--horizontal" id="demo-stepper-nonlinear" style="height: 2200px;">
 
                     <!--step1-->
-                    <li class="mdl-step" onclick="openSumStep(1)">
-                        <span class="mdl-step__label">
+                    <li class="mdl-step">
+                        <span class="mdl-step__label" onclick="openSumStep(1)">
                             <span class="mdl-step__title"><span class="mdl-step__title-text">ข้อมูลทั่วไป</span></span>
                         </span>
                         <div class="mdl-step__content">
@@ -92,13 +92,13 @@
                                 <div class="uk-margin">
                                     <label class="uk-form-label">เหตุผลการเยี่ยมบ้าน</label>
                                     <div class="uk-form-controls uk-form-controls-text">
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right">
                                             <input class="uk-radio" type="radio" name="reason" checked> Assessment</label>
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right">
                                             <input class="uk-radio" type="radio" name="reason"> Illness management</label>
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right">
                                             <input class="uk-radio" type="radio" name="reason"> Palliative</label>
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right">
                                             <input class="uk-radio" type="radio" name="reason"> Post hospitalized</label>
                                     </div>
                                 </div>
@@ -126,7 +126,7 @@
                                     <div class="uk-form-controls uk-form-controls-text">
                                         <div class="uk-grid">
                                             <div class="uk-width-auto">
-                                                <label class="margin-right-20 uk-text-bold">ชื่อยา</label>
+                                                <label class="uk-margin-right uk-text-bold">ชื่อยา</label>
                                                 <select class="uk-select uk-form-width-medium uk-form-small">
                                                     <option>เลือกหรือค้นหาชื่อยา</option>
                                                     <option>1 สัปดาห์</option>
@@ -138,16 +138,16 @@
                                                 </select>
                                             </div>
                                             <div>
-                                                <label class="margin-right-20 uk-text-bold">ลักษณะ</label>
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right uk-text-bold">ลักษณะ</label>
+                                                <label class="uk-margin-right">
                                                     <input class="uk-radio" type="radio" name="unit" checked> ยาเม็ด
                                                 </label>
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right">
                                                     <input class="uk-radio" type="radio" name="unit"> ยาน้ำ
                                                 </label>
                                             </div>
                                             <div>
-                                                <label class="margin-right-20 uk-text-bold">โดส</label>
+                                                <label class="uk-margin-right uk-text-bold">โดส</label>
                                                 <input class="uk-input uk-form-width-xsmall uk-form-small" type="number" placeholder="1"> เม็ด
                                             </div>
                                         </div>
@@ -157,24 +157,24 @@
                                     <div class="uk-form-controls uk-form-controls-text">
                                         <div class="uk-grid">
                                             <div class="uk-width-auto">
-                                                <label class="margin-right-20 uk-text-bold">วิธีใช้ยา</label>
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right uk-text-bold">วิธีใช้ยา</label>
+                                                <label class="uk-margin-right">
                                                     <input class="uk-radio" type="radio" name="method" checked> ก่อนอาหาร</label>
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right">
                                                     <input class="uk-radio" type="radio" name="method"> หลังอาหาร</label>
                                             </div>
                                             <div>
-                                                <label class="margin-right-20 uk-text-bold">ช่วงเวลา</label>
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right uk-text-bold">ช่วงเวลา</label>
+                                                <label class="uk-margin-right">
                                                     <input class="uk-checkbox" type="checkbox"> เช้า
                                                 </label>
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right">
                                                     <input class="uk-checkbox" type="checkbox"> กลางวัน
                                                 </label>
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right">
                                                     <input class="uk-checkbox" type="checkbox"> เย็น
                                                 </label>
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right">
                                                     <input class="uk-checkbox" type="checkbox"> ก่อนนอน
                                                 </label>
                                             </div>
@@ -191,7 +191,7 @@
                                 <div class="uk-margin">
                                     <label class="uk-form-label">Basic activities of daily living</label>
                                     <div class="uk-form-controls uk-form-controls-text">
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right">
                                             <input class="uk-radio " type="radio" name="basic" checked> Yes
                                         </label>
                                         <label>
@@ -201,17 +201,17 @@
                                 </div>
                                 <div class="uk-margin">
                                     <div class="uk-form-controls">
-                                        <label class="margin-right-20"><b>Problem</b></label>
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right"><b>Problem</b></label>
+                                        <label class="uk-margin-right">
                                             <input class="uk-checkbox" type="checkbox"> Dressing
                                         </label>
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right">
                                             <input class="uk-checkbox" type="checkbox"> Eating
                                         </label>
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right">
                                             <input class="uk-checkbox" type="checkbox"> Ambulating
                                         </label>
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right">
                                             <input class="uk-checkbox" type="checkbox"> Toileting
                                         </label>
                                         <input class="uk-checkbox" type="checkbox"> Hygine
@@ -223,7 +223,7 @@
                                     <div class="uk-form-controls uk-form-controls-text">
                                         <div class="uk-grid">
                                             <div class="uk-width-1-1">
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right">
                                                     <input class="uk-radio " type="radio" name="instrument" checked> Yes
                                                 </label>
                                                 <label>
@@ -233,16 +233,16 @@
                                         </div>
                                         <div class="uk-margin">
                                             <div class="uk-width-1-1">
-                                                <label class="margin-right-20"><b>Problem</b></label>
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right"><b>Problem</b></label>
+                                                <label class="uk-margin-right">
                                                     <input class="uk-checkbox" type="checkbox"> Shopping</label>
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right">
                                                     <input class="uk-checkbox" type="checkbox"> Houskeeping
                                                 </label>
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right">
                                                     <input class="uk-checkbox" type="checkbox"> Medication
                                                 </label>
-                                                <label class="margin-right-20">
+                                                <label class="uk-margin-right">
                                                     <input class="uk-checkbox" type="checkbox"> Financial
                                                 </label>
                                                 <input class="uk-checkbox" type="checkbox"> Transpoting / Technology
@@ -256,10 +256,10 @@
                                 <div class="uk-margin">
                                     <label class="uk-form-label">Nutritional status</label>
                                     <div class="uk-form-controls uk-form-controls-text">
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right">
                                             <input class="uk-radio" type="radio" name="nutrition" checked> Healthy
                                         </label>
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right">
                                             <input class="uk-radio" type="radio" name="nutrition"> Obesity
                                         </label>
                                         <input class="uk-radio" type="radio" name="nutrition"> Malnutrition
@@ -270,7 +270,7 @@
                                 <div class="uk-margin">
                                     <label class="uk-form-label">Risk</label>
                                     <div class="uk-form-controls uk-form-controls-text">
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right">
                                             <input class="uk-radio " type="radio" name="risk" checked> Yes
                                         </label>
                                         <label>
@@ -297,7 +297,7 @@
                                 <div class="uk-margin">
                                     <label class="uk-form-label">Caregiver burden</label>
                                     <div class="uk-form-controls uk-form-controls-text">
-                                        <label class="margin-right-20">
+                                        <label class="uk-margin-right">
                                             <input class="uk-radio" type="radio" name="caregiver" checked> Yes
                                         </label>
                                         <label>
@@ -340,11 +340,11 @@
                                     <div class="uk-form-controls uk-form-controls-text">
                                         <div class="uk-grid">
                                             <div class="uk-width-1-5@s">
-                                                <label class="margin-right-20">
-                                                    <input class="uk-radio " type="radio" checked> Yes
+                                                <label class="uk-margin-right">
+                                                    <input class="uk-radio" type="radio" name="prescription" checked> Yes
                                                 </label>
                                                 <label>
-                                                    <input class="uk-radio" type="radio"> No
+                                                    <input class="uk-radio" type="radio" name="prescription"> No
                                                 </label>
                                             </div>
                                             <div class="uk-width-1-2">
@@ -358,11 +358,11 @@
                                     <div class="uk-form-controls uk-form-controls-text">
                                         <div class="uk-grid">
                                             <div class="uk-width-1-5@s">
-                                                <label class="margin-right-20">
-                                                    <input class="uk-radio " type="radio" checked> Yes
+                                                <label class="uk-margin-right">
+                                                    <input class="uk-radio " type="radio" name="nonprescription" checked> Yes
                                                 </label>
                                                 <label>
-                                                    <input class="uk-radio" type="radio"> No
+                                                    <input class="uk-radio" type="radio" name="nonprescription"> No
                                                 </label>
                                             </div>
                                             <div class="uk-width-1-2">
@@ -376,11 +376,11 @@
                                     <div class="uk-form-controls uk-form-controls-text">
                                         <div class="uk-grid">
                                             <div class="uk-width-1-5@s">
-                                                <label class="margin-right-20">
-                                                    <input class="uk-radio " type="radio" checked> Yes
+                                                <label class="uk-margin-right">
+                                                    <input class="uk-radio " type="radio" name="supplement" checked> Yes
                                                 </label>
                                                 <label>
-                                                    <input class="uk-radio" type="radio"> No
+                                                    <input class="uk-radio" type="radio" name="supplement"> No
                                                 </label>
                                             </div>
                                             <div class="uk-width-1-2">
@@ -394,11 +394,11 @@
                                     <div class="uk-form-controls uk-form-controls-text">
                                         <div class="uk-grid">
                                             <div class="uk-width-1-5@s">
-                                                <label class="margin-right-20">
-                                                    <input class="uk-radio " type="radio" checked> Yes
+                                                <label class="uk-margin-right">
+                                                    <input class="uk-radio " type="radio" name="compliance" checked> Yes
                                                 </label>
                                                 <label>
-                                                    <input class="uk-radio" type="radio"> No
+                                                    <input class="uk-radio" type="radio" name="compliance"> No
                                                 </label>
                                             </div>
                                             <div class="uk-width-1-2">
@@ -558,17 +558,15 @@
                     </li>
                     
                     <!--step2-->
-                    <li class="mdl-step" onclick="openSumStep(2)">
-                        <span class="mdl-step__label">
+                    <li class="mdl-step">
+                        <span class="mdl-step__label" onclick="openSumStep(2)">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">รายละเอียดปัญหา</span>
                         </span>
                         </span>
                         <div class="mdl-step__content">
 
-
                         </div>
-
                         <div class="mdl-step__actions">
                             <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
                                 ย้อนกลับ
@@ -581,8 +579,8 @@
                     </li>
                     
                     <!--step3-->
-                    <li class="mdl-step" onclick="openSumStep(3)">
-                        <span class="mdl-step__label">
+                    <li class="mdl-step">
+                        <span class="mdl-step__label" onclick="openSumStep(3)">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">สรุปข้อมูลปัญหา</span>
                         </span>
@@ -602,8 +600,8 @@
                     </li>
                     
                     <!--step4-->
-                    <li class="mdl-step" onclick="openSumStep(4)">
-                        <span class="mdl-step__label">
+                    <li class="mdl-step">
+                        <span class="mdl-step__label" onclick="openSumStep(4)">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">สรุปหลังประชุม</span>
                         </span>
@@ -612,7 +610,6 @@
 
                         </div>
                         <div class="mdl-step__actions">
-
                             <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
                                 ย้อนกลับ
                             </button>
@@ -641,7 +638,7 @@
     <script src="js/stepper-nonlinear.js"></script>
     
     <!--custom js-->
-    <script src="js/stepper-nonlinear.js"></script>
+    <script src="js/openwindow.js"></script>
 </body>
 
 </html>

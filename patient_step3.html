@@ -76,15 +76,16 @@
             <div class="mdl-grid demo-content">
 
                 <ul class="uk-breadcrumb">
-                    <li><a href="summary.html">ผู้ป่วยเยี่ยมบ้าน</a></li>
+                    <li><a href="patient.html">ผู้ป่วยเยี่ยมบ้าน</a></li>
                     <li><span href=""></span>เพิ่มผู้ป่วยเยี่ยมบ้าน</li>
                 </ul>
 
                 <!--stepper-nonlinear-->
                 <ul class="mdl-stepper mdl-stepper--horizontal" id="demo-stepper-nonlinear">
+
                     <!--step1-->
                     <li class="mdl-step">
-                        <span class="mdl-step__label">
+                        <span class="mdl-step__label" onclick="openPatientStep(1)">
                             <span class="mdl-step__title"><span class="mdl-step__title-text">ข้อมูลทั่วไป</span></span>
                         </span>
                         <div class="mdl-step__content ">
@@ -97,9 +98,10 @@
                             </button>
                         </div>
                     </li>
+
                     <!--step2-->
                     <li class="mdl-step">
-                        <span class="mdl-step__label">
+                        <span class="mdl-step__label" onclick="openPatientStep(2)">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">ข้อมูลสุขภาพ</span>
                         </span>
@@ -117,9 +119,10 @@
                             </button>
                         </div>
                     </li>
+                    
                     <!--step3-->
                     <li class="mdl-step is-active">
-                        <span class="mdl-step__label">
+                        <span class="mdl-step__label" onclick="openPatientStep(3)">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">สรุปปัญหา</span>
                         </span>
@@ -159,7 +162,7 @@
                                 <div class="uk-margin">
                                     <label class="uk-form-label" for="form-horizontal-text"></label>
                                     <div class="uk-form-controls">
-                                        <button class="uk-button uk-button-primary uk-button-small">+ เพิ่มปัญหา</button>
+                                        <button class="uk-button uk-button-green uk-button-small">+ เพิ่มปัญหา</button>
                                     </div>
                                 </div>
                             </form>
@@ -169,7 +172,7 @@
                                 ย้อนกลับ
                             </button>
                             <div class="mdl-layout-spacer"></div>
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary mdl-color-text--white">
                                 บันทึก
                             </button>
                         </div>
@@ -191,6 +194,9 @@
     <!--js stepper-->
     <script src="lib/mdl-stepper/stepper.min.js"></script>
     <script src="js/stepper-nonlinear.js"></script>
+
+    <!--custom js-->
+    <script src="js/openwindow.js"></script>
 </body>
 
 </html>

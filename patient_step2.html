@@ -76,15 +76,16 @@
             <div class="mdl-grid demo-content">
 
                 <ul class="uk-breadcrumb">
-                    <li><a href="summary.html">ผู้ป่วยเยี่ยมบ้าน</a></li>
+                    <li><a href="patient.html">ผู้ป่วยเยี่ยมบ้าน</a></li>
                     <li><span href=""></span>เพิ่มผู้ป่วยเยี่ยมบ้าน</li>
                 </ul>
 
                 <!--stepper-nonlinear-->
-                <ul class="mdl-stepper mdl-stepper--horizontal" id="demo-stepper-nonlinear" style="height: 1000px;">
+                <ul class="mdl-stepper mdl-stepper--horizontal" id="demo-stepper-nonlinear" style="height: 1100px;">
+
                     <!--step1-->
                     <li class="mdl-step">
-                        <span class="mdl-step__label">
+                        <span class="mdl-step__label" onclick="openPatientStep(1)">
                             <span class="mdl-step__title"><span class="mdl-step__title-text">ข้อมูลทั่วไป</span></span>
                         </span>
                         <div class="mdl-step__content ">
@@ -97,9 +98,10 @@
                             </button>
                         </div>
                     </li>
+
                     <!--step2-->
                     <li class="mdl-step is-active">
-                        <span class="mdl-step__label">
+                        <span class="mdl-step__label" onclick="openPatientStep(2)">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">ข้อมูลสุขภาพ</span>
                         </span>
@@ -112,7 +114,9 @@
                                         การผ่าตัด
                                     </label>
                                     <div class="uk-form-controls uk-form-controls-text">
-                                        <input>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-checkbox" type="checkbox"> มี:</label>
+                                        <input class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="ระบุ">
                                     </div>
                                 </div>
                                 <div class="uk-margin">
@@ -120,7 +124,9 @@
                                         การแพ้ยา / แพ้อาหาร
                                     </label>
                                     <div class="uk-form-controls uk-form-controls-text">
-                                        <input>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-checkbox" type="checkbox"> มี:</label>
+                                        <input class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="ระบุ">
                                     </div>
                                 </div>
                                 <div class="uk-margin">
@@ -128,7 +134,9 @@
                                         แพทย์ทางเลือก
                                     </label>
                                     <div class="uk-form-controls uk-form-controls-text">
-                                        <input>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-checkbox" type="checkbox"> มี:</label>
+                                        <input class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="ระบุ">
                                     </div>
                                 </div>
                                 <hr>
@@ -138,7 +146,17 @@
                                         สุรา
                                     </label>
                                     <div class="uk-form-controls uk-form-controls-text">
-                                        <input>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-radio" type="radio" name="alcohal" checked> ไม่เคยดื่ม</label>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-radio" type="radio" name="alcohal"> ดื่มอยู่</label>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-radio" type="radio" name="alcohal"> เลิกดื่มแล้ว</label>
+                                        <br>
+                                        <small>ถ้าเคยดื่ม หรือ กำลังดื่มอยู่</small>
+                                        <br>
+                                        <label>
+                                            <input class="uk-checkbox" type="checkbox"> มีปัญหา เกี่ยวกับการดื่ม</label>
                                     </div>
                                 </div>
                                 <div class="uk-margin">
@@ -146,7 +164,21 @@
                                         บุหรี่
                                     </label>
                                     <div class="uk-form-controls uk-form-controls-text">
-                                        <input>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-radio" type="radio" name="cigar" checked> ไม่เคยสูบ</label>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-radio" type="radio" name="cigar"> สูบอยู่</label>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-radio" type="radio" name="cigar"> เลิกสูบแล้ว</label>
+                                        <br>
+                                        <small>ถ้าท่านกำลังสูบ หรือเลิกสูบแล้ว โปรดระบุปริมาณการสูบบุหรี่</small>
+                                        <br>
+                                        <label class="uk-margin-right"> จำนวนมวน
+                                            <input class="uk-input uk-form-width-xsmall uk-form-small" type="number" placeholder=""> / วัน</label>
+
+                                        <label class="uk-margin-right"> ระยะเวลาการสูบ
+                                            <input class="uk-input uk-form-width-xsmall uk-form-small" type="number" placeholder=""> / ปี</label>
+
                                     </div>
                                 </div>
                                 <hr>
@@ -156,7 +188,8 @@
                                         สถานะทางการเงิน
                                     </label>
                                     <div class="uk-form-controls uk-form-controls-text">
-                                        <input>
+                                        <label>
+                                            <input class="uk-checkbox" type="checkbox"> มีปัญหา</label>
                                     </div>
                                 </div>
                                 <div class="uk-margin">
@@ -164,7 +197,28 @@
                                         ประวัติโรคในครอบครัว
                                     </label>
                                     <div class="uk-form-controls uk-form-controls-text">
-                                        <input>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-checkbox" type="checkbox"> Hypertension</label>
+                                        <br>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-checkbox" type="checkbox"> Diabetes mellitus</label>
+                                        <br>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-checkbox" type="checkbox"> Dyslipidemia</label>
+                                        <br>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-checkbox" type="checkbox"> Stroke</label>
+                                        <br>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-checkbox" type="checkbox"> CAD</label>
+                                        <br>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-checkbox" type="checkbox"> Cancer:</label>
+                                        <input class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="ระบุ">
+                                        <br>
+                                        <label class="uk-margin-right">
+                                            <input class="uk-checkbox" type="checkbox"> อื่นๆ: </label>
+                                        <input class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="ระบุ">
                                     </div>
                                 </div>
                             </form>
@@ -179,9 +233,10 @@
                             </button>
                         </div>
                     </li>
+
                     <!--step3-->
                     <li class="mdl-step">
-                        <span class="mdl-step__label">
+                        <span class="mdl-step__label" onclick="openPatientStep(3)">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">สรุปปัญหา</span>
                         </span>
@@ -216,6 +271,9 @@
     <!--js stepper-->
     <script src="lib/mdl-stepper/stepper.min.js"></script>
     <script src="js/stepper-nonlinear.js"></script>
+
+    <!--custom js-->
+    <script src="js/openwindow.js"></script>
 </body>
 
 </html>

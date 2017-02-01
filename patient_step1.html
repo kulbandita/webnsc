@@ -76,15 +76,16 @@
             <div class="mdl-grid demo-content">
 
                 <ul class="uk-breadcrumb">
-                    <li><a href="summary.html">ผู้ป่วยเยี่ยมบ้าน</a></li>
+                    <li><a href="patient.html">ผู้ป่วยเยี่ยมบ้าน</a></li>
                     <li><span href=""></span>เพิ่มผู้ป่วยเยี่ยมบ้าน</li>
                 </ul>
 
                 <!--stepper-nonlinear-->
                 <ul class="mdl-stepper mdl-stepper--horizontal" id="demo-stepper-nonlinear" style="height: 1600px;">
+
                     <!--step1-->
                     <li class="mdl-step">
-                        <span class="mdl-step__label">
+                        <span class="mdl-step__label" onclick="openPatientStep(1)">
                             <span class="mdl-step__title"><span class="mdl-step__title-text">ข้อมูลทั่วไป</span></span>
                         </span>
                         <div class="mdl-step__content ">
@@ -156,9 +157,9 @@
                                     <div class="uk-margin">
                                         <label class="uk-form-label">เพศ</label>
                                         <div class="uk-form-controls uk-form-controls-text">
-                                            <label class="margin-right-20">
+                                            <label class="uk-margin-right">
                                                 <input class="uk-radio" type="radio" name="gender" checked> ชาย</label>
-                                            <label class="margin-right-20">
+                                            <label class="uk-margin-right">
                                                 <input class="uk-radio" type="radio" name="gender"> หญิง</label>
                                         </div>
                                     </div>
@@ -323,9 +324,10 @@
                             </button>
                         </div>
                     </li>
+
                     <!--step2-->
                     <li class="mdl-step">
-                        <span class="mdl-step__label">
+                        <span class="mdl-step__label" onclick="openPatientStep(2)">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">ข้อมูลสุขภาพ</span>
                         </span>
@@ -343,9 +345,10 @@
                             </button>
                         </div>
                     </li>
+
                     <!--step3-->
                     <li class="mdl-step">
-                        <span class="mdl-step__label">
+                        <span class="mdl-step__label" onclick="openPatientStep(3)">
           <span class="mdl-step__title">
             <span class="mdl-step__title-text">สรุปปัญหา</span>
                         </span>
@@ -380,6 +383,9 @@
     <!--js stepper-->
     <script src="lib/mdl-stepper/stepper.min.js"></script>
     <script src="js/stepper-nonlinear.js"></script>
+
+    <!--custom js-->
+    <script src="js/openwindow.js"></script>
 </body>
 
 </html>
