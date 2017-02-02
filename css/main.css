@@ -122,4 +122,8 @@ ul.mdl-stepper.mdl-stepper--horizontal {
     background-color: #4caf50;
 }
 
+.uk-checkbox[type=checkbox]:checked {
+    background-color: #4caf50;
+}
+
 /**/
