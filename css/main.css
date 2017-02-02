@@ -30,6 +30,10 @@ th {
     font-size: 100% !important;
 }
 
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
 .margin-left-10 {
     margin-left: 10px;
 }
@@ -72,6 +76,10 @@ dialog {
     padding-top: 150px;
 }
 
+.text-small {
+    font-size: 10px;
+}
+
 
 /* --------------- MDL --------------- */
 
@@ -91,24 +99,12 @@ ul.mdl-stepper.mdl-stepper--horizontal {
     height: auto !important;
 }
 
-
 /* --------------- UIKit --------------- */
-
-.uk-text-small {
-    font-size: 10px;
-}
 
 .uk-button-green {
     color: #fff;
     background-color: #4caf50;
 }
-
-
-/*
-.uk-button.uk-button-primary.uk-button-green {
-    background-color: #4caf50;
-}
-*/
 
 .uk-text-green {
     color: #4caf50;
@@ -122,5 +118,8 @@ ul.mdl-stepper.mdl-stepper--horizontal {
     border-radius: 5px;
 }
 
+.uk-radio[type=radio]:checked {
+    background-color: #4caf50;
+}
 
 /**/

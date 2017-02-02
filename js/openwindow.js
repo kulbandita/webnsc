@@ -32,3 +32,17 @@ function openPatientStep(num) {
         break;
     }
 }
+
+function openPatient(num) {
+    switch (num) {
+    case 1:
+        window.location = 'patient_view.html';
+        break;
+    case 2:
+        window.location = 'patient_print.html';
+        break;
+    case 3:
+        window.location = 'patient_edit.html';
+        break;
+    }
+}
