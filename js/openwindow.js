@@ -30,6 +30,9 @@ function openPatientStep(num) {
     case 3:
         window.location = 'patient_step3.html';
         break;
+    case 4:
+        window.location = 'patient_step4.html';
+        break;
     }
 }
 

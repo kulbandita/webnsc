@@ -9,7 +9,7 @@
 
     <title>ระบบบริหารจัดการข้อมูลหน่วยบริการเยี่ยมบ้าน (Home visit service management system)</title>
 
-   <!--mdl-->
+    <!--mdl-->
     <link rel="stylesheet" href="lib/mdl/material.min.css">
     <link rel="stylesheet" href="lib/mdl-template-dashboard/styles.css">
 
@@ -29,7 +29,7 @@
 
 <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-         <header class="demo-header mdl-layout__header mdl-color--primary mdl-color-text--white">
+        <header class="demo-header mdl-layout__header mdl-color--primary mdl-color-text--white">
             <div class="mdl-layout__header-row">
                 <img src="img/logo-rama.png" width="50px" style="margin-right: 20px;">
                 <div class="mdl-layout-title" style="margin-top: 20px;">
@@ -73,12 +73,12 @@
         </div>
         <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
-                
-                 <ul class="uk-breadcrumb">
+
+                <ul class="uk-breadcrumb">
                     <li><a href="patient.html">ผู้ป่วยเยี่ยมบ้าน</a></li>
                     <li><span href=""></span>เพิ่มผู้ป่วยเยี่ยมบ้าน</li>
                 </ul>
-                
+
                 <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell--12-col mdl-cell mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
                     <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col">
                         <h1 class="mdl-typography--title">ตรวจสอบเลขที่โรงพยาบาล</h1>
@@ -86,7 +86,7 @@
                             <div class="uk-margin">
                                 <label class="uk-form-label">เลขที่โรงพยาบาล</label>
                                 <div class="uk-form-controls uk-form-controls-text">
-                                  <input class="uk-input uk-width-medium uk-form-small" type="number" placeholder="กรอกตัวเลขรหัสโรงพยาบาล">
+                                    HN <input class="uk-input uk-width-small uk-form-small" type="number" placeholder="กรอกตัวเลข">
                                 </div>
                             </div>
                             <div class="uk-margin">
@@ -100,23 +100,31 @@
                                 <label class="uk-form-label">ประเภทการเยี่ยมบ้าน
                                 </label>
                                 <div class="uk-form-controls uk-form-controls-text">
-                                    <label class="margin-right-20">
-                                        <input class="uk-radio" type="radio" name="reason" checked> Home visit care  </label>
-                                    <label class="margin-right-20">
-                                        <input class="uk-radio" type="radio" name="reason"> Geriatric case  </label>
-                                    <label class="margin-right-20">
-                                        <input class="uk-radio" type="radio" name="reason"> Palliative case</label>
+                                    <label class="uk-margin-right">
+                                        <input class="uk-radio" type="radio" name="reason" checked> Home visit care
+                                    </label>
+                                    <label class="uk-margin-right">
+                                        <input class="uk-radio" type="radio" name="reason"> Geriatric case
+                                    </label>
+                                    <label class="uk-margin-right">
+                                        <input class="uk-radio" type="radio" name="reason"> Palliative case
+                                    </label>
                                 </div>
                             </div>
                             <div class="uk-text-right">
-                            <button class="uk-button uk-button-green">เริ่มกรอกข้อมูล</button></div>
+                                <button class="uk-button uk-button-green">
+                                    <a href="patient_step1.html">เริ่มกรอกข้อมูล</a>
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
                 <!--/.mdl-card-->
             </div>
         </main>
-    </div><!--jquery-->
+    </div>
+    
+    <!--jquery-->
     <script src="js/jquery-3.1.1.min.js"></script>
 
     <!--js-->
