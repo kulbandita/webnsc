@@ -80,6 +80,10 @@ dialog {
     font-size: 10px;
 }
 
+.text-green {
+    color: #4caf50;
+}
+
 
 /* --------------- MDL --------------- */
 
@@ -98,6 +102,7 @@ ul.mdl-stepper.mdl-stepper--horizontal {
 .mdl-step__content {
     height: auto !important;
 }
+
 
 /* --------------- UIKit --------------- */
 
@@ -122,16 +127,11 @@ ul.mdl-stepper.mdl-stepper--horizontal {
     background-color: #4caf50;
 }
 
-
-
-label .uk-radio[type=radio]:disabled {
-    
-}
+label .uk-radio[type=radio]:disabled {}
 
 .uk-checkbox[type=checkbox]:checked {
     background-color: #4caf50;
 }
-
 
 
 /**/
