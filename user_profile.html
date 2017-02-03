@@ -70,10 +70,15 @@
         </div>
         <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
+
+                <ul class="uk-breadcrumb">
+                    <li><span href="#"></span>ข้อมูลส่วนตัว</li>
+                </ul>
+
                 <div class="demo-cards mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
                     <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
                         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                            <h5>ข้อมูลส่วนตัว</h5>
+                            <h4>ข้อมูลส่วนตัว</h4>
                             <form class="uk-form-horizontal">
                                 <div class="uk-margin">
                                     <label class="uk-form-label">ชื่อ</label>
@@ -101,53 +106,53 @@
                 <div class="demo-cards mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
                     <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
                         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                            <h5>รหัสผ่าน</h5>
-                    <form class="uk-form-horizontal">
-                        <div class="uk-margin">
-                            <label class="uk-form-label">รหัสผ่านเดิม</label>
-                            <div class="uk-form-controls uk-form-controls-text">
-                                <input class="uk-input uk-form-small" id="form-stacked-text" type="text" placeholder="รหัสผ่านเดิม">
-                            </div>
-                        </div>
-                        <div class="uk-margin">
-                            <label class="uk-form-label">รหัสผ่านใหม่</label>
-                            <div class="uk-form-controls uk-form-controls-text">
-                                <input class="uk-input uk-form-small" id="form-stacked-text" type="text" placeholder="รหัสผ่านใหม่">
-                                <small>อย่างน้อย 6 ตัวอักขระ</small>
-                            </div>
-                        </div>
-                        <div class="uk-margin">
-                            <label class="uk-form-label">ยืนยันรหัสผ่านใหม่</label>
-                            <div class="uk-form-controls uk-form-controls-text">
-                                <input class="uk-input uk-form-small" id="form-stacked-text" type="text" placeholder="รหัสผ่านใหม่">
-                            </div>
-                        </div>
-                        <hr>
-                        <h5>คำถามเพื่อรีเซตรหัสผ่าน</h5>
-                        <div class="uk-margin">
-                            <label class="uk-form-label">คำถาม</label>
-                            <div class="uk-form-controls uk-form-controls-text">
-                                <input class="uk-input uk-form-small" id="form-stacked-text" type="text" placeholder="คำถาม">
-                            </div>
-                        </div>
-                        <div class="uk-margin">
-                            <label class="uk-form-label">คำตอบ</label>
-                            <div class="uk-form-controls uk-form-controls-text">
-                                <input class="uk-input uk-form-small" id="form-stacked-text" type="text" placeholder="คำตอบ">
-                            </div>
-                        </div>
-                        <button class="uk-button uk-button-primary uk-button-green">บันทึก</button>
-                    </form>
+                            <h4>รหัสผ่าน</h4>
+                            <form class="uk-form-horizontal">
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">รหัสผ่านเดิม</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <input class="uk-input uk-form-small" id="form-stacked-text" type="text" placeholder="รหัสผ่านเดิม">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">รหัสผ่านใหม่</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <input class="uk-input uk-form-small" id="form-stacked-text" type="text" placeholder="รหัสผ่านใหม่">
+                                        <small>อย่างน้อย 6 ตัวอักขระ</small>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">ยืนยันรหัสผ่านใหม่</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <input class="uk-input uk-form-small" id="form-stacked-text" type="text" placeholder="รหัสผ่านใหม่">
+                                    </div>
+                                </div>
+                                <hr>
+                                <h5>คำถามเพื่อรีเซตรหัสผ่าน</h5>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">คำถาม</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <input class="uk-input uk-form-small" id="form-stacked-text" type="text" placeholder="คำถาม">
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">คำตอบ</label>
+                                    <div class="uk-form-controls uk-form-controls-text">
+                                        <input class="uk-input uk-form-small" id="form-stacked-text" type="text" placeholder="คำตอบ">
+                                    </div>
+                                </div>
+                                <button class="uk-button uk-button-primary uk-button-green">บันทึก</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-    
+
     <!--jquery-->
     <script src="js/jquery-3.1.1.min.js"></script>
-    
+
     <!--js-->
     <script src="lib/mdl/material.min.js"></script>
     <script src="lib/uikit/js/uikit.min.js"></script>

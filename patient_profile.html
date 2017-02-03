@@ -98,13 +98,16 @@
                                 <small class="uk-text-muted">ประเภทการเยี่ยมบ้าน</small>
                                 <br>
                                 <label>
-                                    <input class="uk-radio" type="radio" name="visit-category" checked> Home visit case</label>
+                                    <input class="uk-radio" type="radio" name="visit-category" checked> Home visit case
+                                </label>
                                 <br>
-                                <label>
-                                    <input class="uk-radio" type="radio" name="visit-category" disabled> Geriatric case</label>
+                                <label class="uk-text-muted">
+                                    <input class="uk-radio" type="radio" name="visit-category" disabled> Geriatric case
+                                </label>
                                 <br>
-                                <label>
-                                    <input class="uk-radio" type="radio" name="visit-category" disabled> Palliative case</label>
+                                <label class="uk-text-muted">
+                                    <input class="uk-radio" type="radio" name="visit-category" disabled> Palliative case
+                                </label>
                             </div>
                             <div class="uk-width-1-4@m">
                                 <div class="uk-margin-bottom"> <small class="uk-text-muted">
@@ -117,11 +120,8 @@
                                     </small>
                                     <br> 5 ครั้ง
                                 </div>
-
-
                             </div>
                             <div class="uk-width-1-4@m">
-
                                 <div class="uk-margin-bottom"> <small class="uk-text-muted">
                                    เยี่ยมบ้านครั้งล่าสุด
                                     </small>
@@ -132,7 +132,6 @@
                                     </small>
                                     <br> 4/7/2559 (เช้า)
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -148,12 +147,18 @@
                             <!--/.mdl-tabs__tab-bar-->
                             <div class="mdl-tabs__panel is-active" id="summary-panel">
                                 <div class="uk-margin uk-margin-top">
-                                    <div class="uk-text-left uk-float-left">
-                                        ดูสรุปเยี่ยมบ้านย้อนหลัง
-                                        <input placeholder="dropdown">
+                                    <div class="uk-text-left uk-float-left uk-width-1-2">
+                                        <label>ดูสรุปเยี่ยมบ้านย้อนหลัง</label>
+                                        <input class="uk-input uk-form-small" type="text" placeholder="dropdown" list="browsers">
+                                        <datalist id="browsers">
+                                            <option value="Internet Explorer">
+                                                <option value="Firefox">
+                                                    <option value="Chrome">
+                                                        <option value="Opera">
+                                                            <option value="Safari">
+                                        </datalist>
                                     </div>
                                     <div class=" uk-text-right">
-
                                         <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="openPatient(1)">
                                             <i class="material-icons">remove_red_eye</i>
                                         </button>
@@ -165,10 +170,7 @@
                                         </button>
                                     </div>
                                 </div>
-
                                 <div class="uk-form-horizontal">
-
-
                                     <h4 class="uk-margin-top uk-text-green">ส่วนที่ 1 ข้อมูลทั่วไป</h4>
                                     <div class="uk-margin">
                                         <label class="uk-form-label">
@@ -198,13 +200,17 @@
                                         <label class="uk-form-label">เหตุผลการเยี่ยมบ้าน</label>
                                         <div class="uk-form-controls uk-form-controls-text">
                                             <label class="uk-margin-right">
-                                                <input class="uk-radio" type="radio" name="reason" checked> Assessment</label>
-                                            <label class="uk-margin-right">
-                                                <input class="uk-radio" type="radio" name="reason"> Illness management</label>
-                                            <label class="uk-margin-right">
-                                                <input class="uk-radio" type="radio" name="reason"> Palliative</label>
-                                            <label class="uk-margin-right">
-                                                <input class="uk-radio" type="radio" name="reason"> Post hospitalized</label>
+                                                <input class="uk-radio" type="radio" name="reason" checked> Assessment
+                                            </label>
+                                            <label class="uk-margin-right uk-text-muted">
+                                                <input class="uk-radio" type="radio" name="reason" disabled> Illness management
+                                            </label>
+                                            <label class="uk-margin-right uk-text-muted">
+                                                <input class="uk-radio" type="radio" name="reason" disabled> Palliative
+                                            </label>
+                                            <label class="uk-margin-right uk-text-muted">
+                                                <input class="uk-radio" type="radio" name="reason" disabled> Post hospitalized
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="uk-margin">
@@ -548,7 +554,7 @@
                                                     <input class="uk-checkbox" type="checkbox" checked> Medication management
                                                 </div>
                                                 <div class="uk-width-1-2">
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
@@ -571,7 +577,7 @@
                                                     <input class="uk-checkbox" type="checkbox" checked> Family meeting
                                                 </div>
                                                 <div class="uk-width-1-2">
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
@@ -653,7 +659,7 @@
                                     <div class="uk-margin">
                                         <label class="uk-form-label" for="form-horizontal-text">Biological problem</label>
                                         <div class="uk-form-controls uk-form-controls-text">
-                                           Duis accumsan, quam nec faucibus consequat, lectus tellus pellentesque orci, eget sodales ex nunc a tellus. Praesent convallis, lacus vitae luctus iaculis, velit est venenatis est, eget convallis nisl urna sed nunc. Cras tempus et dui ac facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Duis accumsan, quam nec faucibus consequat, lectus tellus pellentesque orci, eget sodales ex nunc a tellus. Praesent convallis, lacus vitae luctus iaculis, velit est venenatis est, eget convallis nisl urna sed nunc. Cras tempus et dui ac facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                         </div>
                                     </div>
                                     <hr>
@@ -694,7 +700,7 @@
                                                     <input class="uk-checkbox" type="checkbox" checked> ปกติ
                                                 </div>
                                                 <div class="uk-width-1-2">
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -863,20 +869,20 @@
                                     <div class="uk-margin">
                                         <label class="uk-form-label" for="form-horizontal-text">Other problem</label>
                                         <div class="uk-form-controls uk-form-controls-text">
-                                            Vivamus quis diam pretium, pellentesque libero in, consectetur magna. Vestibulum non pulvinar nisi. Ut eu iaculis dolor. Duis lorem metus, sagittis a varius non, viverra non mi. Ut nisi nisl, ullamcorper vel fringilla id, mattis eget ante. Ut id dolor a est sollicitudin vestibulum porttitor ut nibh. 
+                                            Vivamus quis diam pretium, pellentesque libero in, consectetur magna. Vestibulum non pulvinar nisi. Ut eu iaculis dolor. Duis lorem metus, sagittis a varius non, viverra non mi. Ut nisi nisl, ullamcorper vel fringilla id, mattis eget ante. Ut id dolor a est sollicitudin vestibulum porttitor ut nibh.
                                         </div>
                                     </div>
                                     <p class="mdl-typography--title">Summarized</p>
                                     <div class="uk-margin">
                                         <label class="uk-form-label" for="form-horizontal-text">Assessment and Plan</label>
                                         <div class="uk-form-controls uk-form-controls-text">
-                                            Ut condimentum arcu tortor. Pellentesque quis elit sed risus imperdiet eleifend eu eget metus. Maecenas tincidunt sollicitudin mattis. Cras hendrerit varius suscipit. Sed pretium dictum efficitur. 
+                                            Ut condimentum arcu tortor. Pellentesque quis elit sed risus imperdiet eleifend eu eget metus. Maecenas tincidunt sollicitudin mattis. Cras hendrerit varius suscipit. Sed pretium dictum efficitur.
                                         </div>
                                     </div>
                                     <div class="uk-margin">
                                         <label class="uk-form-label" for="form-horizontal-text">Goal</label>
                                         <div class="uk-form-controls uk-form-controls-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vestibulum erat at sapien blandit, id vehicula neque auctor. Aliquam porttitor euismod consectetur. 
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vestibulum erat at sapien blandit, id vehicula neque auctor. Aliquam porttitor euismod consectetur.
                                         </div>
                                     </div>
                                     <hr>
@@ -913,7 +919,7 @@
                                     <div class="uk-margin">
                                         <label class="uk-form-label" for="form-horizontal-text">วางแผนครั้งต่อไป</label>
                                         <div class="uk-form-controls uk-form-controls-text">
-                                                เยี่ยมบ้านต่อ ระยะเวลา 1 เดือน
+                                            เยี่ยมบ้านต่อ ระยะเวลา 1 เดือน
                                         </div>
                                     </div>
                                 </div>
