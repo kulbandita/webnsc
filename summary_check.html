@@ -71,97 +71,59 @@
                 <div class="mdl-layout-spacer"></div>
             </nav>
         </div>
-
         <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
 
                 <ul class="uk-breadcrumb">
-                    <li><a href="patient.html">ผู้ป่วยเยี่ยมบ้าน</a></li>
-                    <li><span href=""></span>เพิ่มผู้ป่วยเยี่ยมบ้าน</li>
+                    <li><a href="patient.html">สรุปเยี่ยมบ้าน</a></li>
+                    <li><span href="#"></span>เพิ่มสรุปเยี่ยมบ้าน</li>
                 </ul>
 
-                <!--stepper-nonlinear-->
-                <ul class="mdl-stepper mdl-stepper--horizontal" id="demo-stepper-nonlinear">
-
-                    <!--step1-->
-                    <li class="mdl-step">
-                        <span class="mdl-step__label" onclick="openPatientStep(1)">
-                            <span class="mdl-step__title"><span class="mdl-step__title-text">ข้อมูลทั่วไป</span></span>
-                        </span>
-                        <div class="mdl-step__content "></div>
-                        <div class="mdl-step__actions"></div>
-                    </li>
-
-                    <!--step2-->
-                    <li class="mdl-step">
-                        <span class="mdl-step__label" onclick="openPatientStep(2)">
-          <span class="mdl-step__title">
-            <span class="mdl-step__title-text">ข้อมูลสุขภาพ</span>
-                        </span>
-                        </span>
-                        <div class="mdl-step__content"></div>
-                        <div class="mdl-step__actions"></div>
-                    </li>
-
-                    <!--step3-->
-                    <li class="mdl-step">
-                        <span class="mdl-step__label" onclick="openPatientStep(3)">
-          <span class="mdl-step__title">
-            <span class="mdl-step__title-text">สรุปปัญหา</span>
-                        </span>
-                        </span>
-                        <div class="mdl-step__content"></div>
-                        <div class="mdl-step__actions"></div>
-                    </li>
-                    
-                    <!--step4-->
-                    <li class="mdl-step is-active">
-                        <span class="mdl-step__label" onclick="openPatientStep(4)">
-          <span class="mdl-step__title">
-            <span class="mdl-step__title-text">สรุปหลังประชุม</span>
-                        </span>
-                        </span>
-                        <div class="mdl-step__content">
-                            <form class="uk-form-horizontal uk-margin-large">
-                                <h5 class="text-green">นัดหมายเยี่ยมบ้าน</h5>
-                                <div class="uk-margin">
-                                    <label class="uk-form-label" for="form-horizontal-text">วันที่เยี่ยมบ้าน</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input uk-form-small uk-width-medium" type="date">
-                                    </div>
+                <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell--12-col mdl-cell mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+                    <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col">
+                        <h4>สรุปเยี่ยมบ้าน</h4>
+                        <form class="uk-form-horizontal">
+                            <div class="uk-margin">
+                                <label class="uk-form-label">เลขที่โรงพยาบาล</label>
+                                <div class="uk-form-controls uk-form-controls-text">
+                                    HN <input class="uk-input uk-width-small uk-form-small" type="number" placeholder="กรอกตัวเลข">
                                 </div>
-                                 <div class="uk-margin">
-                                    <label class="uk-form-label" for="form-horizontal-text">
-                                        ช่วงเวลา
-                                     </label>
-                                    <div class="uk-form-controls uk-form-controls-text">
-                                        <label class="uk-margin-right">
-                                            <input class="uk-radio" type="radio" name="time" checked> เช้า <small>(9.00 - 12.00)</small>
-                                        </label>
-                                        <label class="uk-margin-right"><br>
-                                            <input class="uk-radio" type="radio" name="time"> บ่าย <small>(13.00 - 16.00)</small>
-                                        </label>
-                                    </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label">สถานะเยี่ยมบ้าน
+                                </label>
+                                <div class="uk-form-controls uk-form-controls-text">
+                                    ใหม่
                                 </div>
-                            </form>
-                        </div>
-                        <div class="mdl-step__actions">
-                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="openPatientStep(3)">
-                                ย้อนกลับ
-                            </button>
-                            <div class="mdl-layout-spacer"></div>
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary mdl-color-text--white">
-                                บันทึก
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-                <!--/.stepper-nonlinear-->
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label">ประเภทการเยี่ยมบ้าน
+                                </label>
+                                <div class="uk-form-controls uk-form-controls-text">
+                                    <label class="uk-margin-right">
+                                        <input class="uk-radio" type="radio" name="reason" checked> Home visit care
+                                    </label>
+                                    <label class="uk-margin-right">
+                                        <input class="uk-radio" type="radio" name="reason"> Geriatric case
+                                    </label>
+                                    <label class="uk-margin-right">
+                                        <input class="uk-radio" type="radio" name="reason"> Palliative case
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="uk-text-right">
+                                <button class="uk-button uk-button-green">
+                                    <a href="patient_step1.html">เริ่มกรอกข้อมูล</a>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--/.mdl-card-->
             </div>
-            <!--/.demo-content-->
         </main>
     </div>
-
+    
     <!--jquery-->
     <script src="js/jquery-3.1.1.min.js"></script>
 
