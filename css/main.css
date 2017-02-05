@@ -95,6 +95,9 @@ dialog {
     padding-top: 20px;
 }
 
+.mdl-button--red {
+    color: orangered;
+}
 
 /* --------------- stepper --------------- */
 
