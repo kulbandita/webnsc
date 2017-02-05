@@ -80,13 +80,20 @@
                 </ul>
 
                 <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell--12-col mdl-cell mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-                    <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col">
-                        <h4>สรุปเยี่ยมบ้าน</h4>
+                    <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col mdl-color-text--grey-900">
+                        <h4>สรุปข้อมูลเยี่ยมบ้าน</h4>
                         <form class="uk-form-horizontal">
                             <div class="uk-margin">
                                 <label class="uk-form-label">เลขที่โรงพยาบาล</label>
                                 <div class="uk-form-controls uk-form-controls-text">
-                                    HN <input class="uk-input uk-width-small uk-form-small" type="number" placeholder="กรอกตัวเลข">
+                                    HN 9785356
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label">ชื่อ-นามสกุลผู้ป่วย
+                                </label>
+                                <div class="uk-form-controls uk-form-controls-text">
+                                    นาง เพียรจิต จงใจรักษ์
                                 </div>
                             </div>
                             <div class="uk-margin">
@@ -100,20 +107,56 @@
                                 <label class="uk-form-label">ประเภทการเยี่ยมบ้าน
                                 </label>
                                 <div class="uk-form-controls uk-form-controls-text">
+                                    Home visit care
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label">วันเวลาที่เยี่ยม
+                                </label>
+                                <div class="uk-form-controls uk-form-controls-text">
+                                    2/2/2560 <small>(เช้า)</small>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label">แพทย์เจ้าของไข้
+                                </label>
+                                <div class="uk-form-controls uk-form-controls-text">
+                                    นพ.ประสงค์ ทรงธรรม <small>(013655)</small>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label">ทีมแพทย์เยี่ยมบ้าน
+                                </label>
+                                <div class="uk-form-controls uk-form-controls-text">
+                                    <ol>
+                                        <li> นพ.นพดล นพกุล <small>(011106)</small></li>
+                                        <li> นพ.นพดล นพกุล <small>(011106)</small></li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="uk-margin">
+                                <label class="uk-form-label">สรุปผลเยี่ยมบ้าน
+                                </label>
+                                <div class="uk-form-controls uk-form-controls-text">
                                     <label class="uk-margin-right">
-                                        <input class="uk-radio" type="radio" name="reason" checked> Home visit care
+                                        <input class="uk-radio" type="radio" name="reason" checked> ได้เยี่ยมบ้าน
                                     </label>
                                     <label class="uk-margin-right">
-                                        <input class="uk-radio" type="radio" name="reason"> Geriatric case
+                                        <input class="uk-radio" type="radio" name="reason"> ยกเลิกเยี่ยมบ้าน
                                     </label>
                                     <label class="uk-margin-right">
-                                        <input class="uk-radio" type="radio" name="reason"> Palliative case
+                                        <input class="uk-radio" type="radio" name="reason"> ปิดเยี่ยมบ้าน
                                     </label>
+                                    <br>
+                                    <br>
+                                    <small>ถ้าไม่ได้เยี่ยมบ้าน โปรดระบุเหตุผล</small>
+                                    <input class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="เลือกเหตุผล">
                                 </div>
                             </div>
                             <div class="uk-text-right">
                                 <button class="uk-button uk-button-green">
-                                    <a href="patient_step1.html">เริ่มกรอกข้อมูล</a>
+                                    <a href="summary_step1.html">เริ่มกรอกข้อมูล</a>
                                 </button>
                             </div>
                         </form>
@@ -123,7 +166,7 @@
             </div>
         </main>
     </div>
-    
+
     <!--jquery-->
     <script src="js/jquery-3.1.1.min.js"></script>
 
